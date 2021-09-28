@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/Roboto-Regular-webfont.eot');
+    src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('fonts/Roboto-Regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('fonts/Roboto-Bold-webfont.eot');
+    src: url('fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('fonts/Roboto-Bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'robotoitalic';
+    src: url('fonts/Roboto-Italic-webfont.eot');
+    src: url('fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Roboto-Italic-webfont.woff') format('woff'),
+         url('fonts/Roboto-Italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'robotobolditalic';
+    src: url('fonts/Roboto-BoldItalic-webfont.eot');
+    src: url('fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
+         url('fonts/Roboto-BoldItalic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+h1 {
+ font-family:'robotobold';
+ font-size: 24px;
+ color: #990000;
+ margin-top: 60px;
+ }
+
+
+h2 {
+ font-family:'robotobold';
+ font-size: 20px;
+ color: #990000;
+ margin-top: 36px;
+ }
+ 
+h3 {
+ font-family:'robotobold';
+ font-size: 16px;
+ color: #1a1a1a; 
+ } 
+
+p {
+ background-color: white; 
+ font-family: 'robotoregular'; 
+ text-align: justify;
+ color: #1a1a1a; 
+ font-size: 14px;
+ }
+
+ul {
+ background-color: white; 
+ font-family: 'robotoregular'; 
+ text-align: justify;
+ color: #1a1a1a; 
+ font-size: 14px;
+ }
+
+
+
+strong {
+ background-color: white; 
+ font-family: 'robotobold';
+ font-weight: bold;
+ color: #1a1a1a; 
+ font-size: 14px;
+ }
+
+.fig{
+ font-family: 'robotoitalic';
+ color: #990000; 
+ font-size: 16px;
+ margin-top: 16px;
+ }
+
+
+#main .nav-pills > li.active > a,
+#main .nav-pills > li.active > a:hover,
+#main .nav-pills > li.active > a:focus {
+   background-color: #22983B;
+}
+
+
+#main a {
+    background-image: linear-gradient(180deg,#990000,#990000);
+    color:#990000;
+}
+
+a:hover{
+    color:#3d1308
+}
+
+a:visited{
+    color:#3d1308
+}
+
+
+
+
+
+
