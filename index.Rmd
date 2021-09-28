@@ -125,16 +125,14 @@ Les contextes de déviation utilisés seront la Métropole du Grand Paris (dévi
 - `sf`, pour la manipulation et le traitement de données géographiques.
 - `mapsf`, pour les représentations cartographiques.
 - `RColorBrewer`, pour les palettes de couleur. 
-- `readxl`, pour manipuler des fichiers Excel.
 - `ineq`, pour le calcul d'indices économétriques de concentration.
 - `spdep`, pour le calculs des indices d'autocorrélation spatiale. 
 
 Le code ci-dessous vérifie que toutes les librairies requises pour jouer cet exemple d'application sont bien installées. Si ce n'est pas le cas elles sont installées puis chargées dans la session de travail. 
 
-```{r packages, echo=TRUE, eval=TRUE, results=FALSE}
+```{r packages_viz, echo=TRUE, eval=FALSE, results=FALSE}
 # Noms de packages nécessaires
-my_packages <- c("MTA", "sf", "cartography", "readxl", "flextable", "ineq", 
-                 "spdep", "mapsf", "RColorBrewer")
+my_packages <- c("MTA", "sf", "ineq", "spdep", "mapsf", "RColorBrewer")
 
 # Vérifier si ces packages sont installés
 missing_packages <- my_packages[!(my_packages %in% installed.packages()[,"Package"])]
@@ -149,7 +147,19 @@ invisible(lapply(my_packages, library,  character.only = TRUE))
 ```
 
 
-## Source des données
+```{r packages_rmd, echo=FALSE, eval=TRUE, results=FALSE}
+# En caché, les packages utilisés pour la mise en page des éléments graphiques de la fiche
+my_packages <- c("MTA", "sf", "cartography", "readxl", "flextable", "ineq", 
+                 "spdep", "mapsf", "RColorBrewer")
+missing_packages <- my_packages[!(my_packages %in% installed.packages()[,"Package"])]
+if(length(missing_packages)) install.packages(missing_packages, 
+                                              repos = "http://cran.us.r-project.org")
+lapply(my_packages, library, character.only = TRUE)
+invisible(lapply(my_packages, library,  character.only = TRUE))
+```
+
+
+## Source et préparation des données
 
 Pour cette analyse, nous mobilisons des indicateurs socio-économiques pour différentes mailles territoriales (communes, IRIS) contenues dans des métropoles françaises. Quatre fichiers de données distribués par l'IGN (géométries) et l'INSEE (données socio-économiques) ont ainsi été prélablement importés :
 
@@ -161,20 +171,20 @@ Pour cette analyse, nous mobilisons des indicateurs socio-économiques pour diff
 
  **4) base-ic-logement-2016.xls** : Des indicateurs décrivant le niveau de motorisation des ménages à l'échelle des IRIS, distribué par l'[INSEE](https://www.insee.fr/fr/statistiques/4228432){target="_blank"}.  Il ne sera utilisé qu'en toute fin de document pour montrer la possible transposition à d'autres espaces d'étude et d'autres mailles territoriales.
 
-
 Un cinquième fichier, **metropole.xls **, construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
 
 Hormis ce dernier fichier, il s'agit donc ici de sources de données officielles, mises à jour annuellement, qui sont associées à un découpage géographique libre de droit et d'utilisation. Cela rend ainsi possible la mise à jour ou la transposition des analyses qui suivront assez aisément. 
 
-Pour rejouer la préparation des données (ou l'adapter à d'autres indicateurs), se reporter à ce script R. 
+Pour rejouer la préparation des données (ou l'adapter à d'autres indicateurs), se reporter à ce [script R](https://github.com/rysebaert/mta_rzine/blob/main/prepa.R). 
 
 
-## Présentation des données
+## Emprise géographique
 
-Voici le dénombrement de objets géographiques disponible par découpage territorial et métropole.
+Les données préparées en amont regroupe trois découpages géographiques (communes, IRIS, communautés d'agglomération) pour les 22 métropoles françaises. 
 
-```{r geographical_objects, echo = TRUE, eval = TRUE, message=FALSE, warning=FALSE}
+```{r geographical_objects, echo = FALSE, eval = TRUE, message=FALSE, warning=FALSE}
 ## Synthèse (table)
+iris <- st_read("data/data.gpkg", layer = "iris", quiet=TRUE)
 tmp <- st_set_geometry(iris, NULL)
 
 tmp <- aggregate(x = tmp[,c("CODE_IRIS", "INSEE_COM", "LIB_EPCI_SUB")], 
@@ -191,14 +201,47 @@ myft
 ```
 
 
-Nous importons ici le fichier 
+## Présentation des données disponibles 
 
-Le second fichier de données,
+L'ensemble des données sont disponibles dans l'archive téléchargeable [ici]. En particulier, cette archive contient un géopackage `data.gpkg` avec 4 couches géographiques : 
 
-Les données et géométries utiles sont exportées dans le fichier `input.gpkg` afin d'éviter d'avoir à rejouer le script de préparation des données. 
+- `epci` : la couche géographique des communautés d'agglomération (EPCI) contenues dans les métropoles, qui sera utilisé pour l'habillage des cartes.  
+- `metro` : celle des métropoles, également utilisée pour l'habillage cartographique. 
+- `com` : celle des communes, qui contient des données socio-économiques.
+- `iris` : même chose mais pour les IRIS. 
+
+Est précisé ci-dessous les codes des variables, leur libellé et les sources de données des couches communales et par IRIS. 
+
+### Communes
+
+C'est la couche principale qui sera utilisée dans cette fiche. 
+
+```{r meta_com, echo = FALSE, eval = TRUE, message=FALSE, warning=FALSE}
+## Synthèse (table)
+tmp <- read.csv("data/com_meta.csv", sep = ";")
+myft <- flextable(tmp)
+myft <- theme_vanilla(myft)
+myft <- autofit(myft)
+
+myft
+
+```
+
+### IRIS
+
+C'est la couche qui sera utilisée en fin de document pour discuter de la transposition de l'analyse à un autre espace d'étude. 
+
+```{r meta_iris, echo = FALSE, eval = TRUE, message=FALSE, warning=FALSE}
+## Synthèse (table)
+tmp <- read.csv("data/iris_meta.csv", sep = ";")
+myft <- flextable(tmp)
+myft <- theme_vanilla(myft)
+myft <- autofit(myft)
+
+myft
+```
 
 
-Et l'illustration de l'emprise spatiale de ces découpages territoriaux pour la Métropole du Grand Paris. Les fonctions de représentations cartographiques utilisées dans cette fiche sont issues du package `mapsf`, dont l'usage et la documentation sont très bien détaillés sur ce [site Web](https://riatelab.github.io/mapsf/). L'objet de cette fiche n'étant pas de traiter de la cartographie thématique, nous ne détaillerons pas outre mesure ces fonctions de représentation.  
 
 
 
@@ -229,9 +272,9 @@ Les objets sf `com` et `epci` sont importés.
 
 ```{r import_data_consolidated}
 # Import
-com <- st_read("data/input.gpkg", layer = "com", quiet = TRUE) 
-epci <- st_read("data/input.gpkg", layer = "epci", quiet = TRUE) 
-metro <- st_read("data/input.gpkg", layer = "metro", quiet = TRUE) 
+com <- st_read("data/data.gpkg", layer = "com", quiet = TRUE) 
+epci <- st_read("data/data.gpkg", layer = "epci", quiet = TRUE) 
+metro <- st_read("data/data.gpkg", layer = "metro", quiet = TRUE) 
 
 # Filtrer sur Paris
 com <- com[com$LIB_EPCI == "Métropole du Grand Paris",]
@@ -1224,8 +1267,8 @@ A ce titre, cet ultime bloc de code décrit une procédure possible pour transpo
 
 ```{r gre_prep, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
 # 1 - Import et sélection des données
-iris <- st_read("data/input.gpkg", layer = "iris", quiet=TRUE)
-com <- st_read("data/input.gpkg", layer = "com", quiet = TRUE) 
+iris <- st_read("data/data.gpkg", layer = "iris", quiet=TRUE)
+com <- st_read("data/data.gpkg", layer = "com", quiet = TRUE) 
 
 # et voir les métropoles disponibles
 levels(as.factor(com$LIB_EPCI))

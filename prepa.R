@@ -132,11 +132,11 @@ iris <- merge(iris, df, by.x = "CODE_IRIS", by.y = "IRIS", all.x = TRUE)
 # 5 - Export des couches géographiques enrichies au format geopackage
 ##########################################################################
 
-st_write(obj = iris, dsn = "data/input.gpkg", layer = "iris", 
+st_write(obj = iris, dsn = "data/data.gpkg", layer = "iris", 
          delete_layer = TRUE, quiet = TRUE)
-st_write(obj = com, dsn = "data/input.gpkg", layer = "com", 
+st_write(obj = com, dsn = "data/data.gpkg", layer = "com", 
          delete_layer = TRUE, quiet = TRUE)
-st_write(obj = epci, dsn = "data/input.gpkg", layer = "epci", 
+st_write(obj = epci, dsn = "data/data.gpkg", layer = "epci", 
          delete_layer = TRUE, quiet = TRUE)
-st_write(obj = metro, dsn = "data/input.gpkg", layer = "metro", 
+st_write(obj = metro, dsn = "data/data.gpkg", layer = "metro", 
          delete_layer = TRUE, quiet = TRUE)
