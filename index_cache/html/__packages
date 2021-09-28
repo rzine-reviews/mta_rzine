@@ -1,0 +1,15 @@
+base
+knitr
+rmarkdown
+rzine
+MTA
+sf
+cartography
+readxl
+flextable
+ineq
+sp
+spData
+spdep
+mapsf
+RColorBrewer

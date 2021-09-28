@@ -117,21 +117,15 @@ Sur ces bases, nous proposons ici le déroulé d'une possible analyse multiscala
 Les contextes de déviation utilisés seront la Métropole du Grand Paris (déviation générale), l'EPCI^[__EPCI__: Établissement de coopération intercommunale. Il s'agit d'une structure administrative regroupant plusieurs communes afin d'exercer certaines de leurs compétences en commun. Aujourd'hui en principe, chaque commune doit appartenir à un EPCI à fiscalité propre, en vertu de la loi NOTRe de 2015.] d'appartenance (déviation territoriale) et enfin les unités territoriales qui partagent une limite communale (déviation spatiale).
 
 
-# Préparation des données
-
-**La préparation des données et géométries n'a pas vocation à être rejouée pour lancer l'analyse. Elle détaille en revanche les étapes de préparation à suivre pour construire un jeu de données opérationnel à partir des fichiers de référence distribués par l'INSEE et l'IGN.** Cette partie se conclue par l'export de couches géographiques enrichies au format geopackage, qui sera importé en tout début de la prochaine partie.
-
-Ce script peut en revanche utile si l'on souhaite préparer des données pour d'autres indicateurs ou d'autres mailles territoriales.
+# Présentation des données
 
 ## Import des librairies utiles
 
 - `MTA`, pour la mesure des écarts multiscalaires.  
 - `sf`, pour la manipulation et le traitement de données géographiques.
 - `mapsf`, pour les représentations cartographiques.
-- `cartography`, pour le calcul des discontinuités.
 - `RColorBrewer`, pour les palettes de couleur. 
 - `readxl`, pour manipuler des fichiers Excel.
-- `flextable`, pour le formatage des tableaux de synthèse. 
 - `ineq`, pour le calcul d'indices économétriques de concentration.
 - `spdep`, pour le calculs des indices d'autocorrélation spatiale. 
 
@@ -155,77 +149,27 @@ invisible(lapply(my_packages, library,  character.only = TRUE))
 ```
 
 
+## Source des données
 
-## Préparation des géométries
-
-Cette sous-partie vise à extraire des fichiers source de l'IGN et de l'INSEE les maillages territoriaux utiles pour l'analyse et les espaces d'étude d'intérêt : découpages en IRIS^[__IRIS__: Plus petit découpage territorial en France, qui constitue la brique de base en matière de diffusion de données infra-communales par l'INSEE. Les communes d'au moins 10 000 habitants et une forte proportion des communes de 5 000 à 10 000 habitants sont découpées en IRIS. On distingue les IRIS d'habitat, dont la population se situe en général entre 1 800 et  5 000 habitants et dont les limites s'appuient sur les grandes coupures du tissu urbain, des IRIS d'activité (plus de 1 000 salariés et des IRIS divers (parcs, forêts, eaux, etc.)], communes et EPCI pour la Métropole du Grand Paris et les 21 autres métropoles françaises (afin de pouvoir éventuellement étendre à l'analyse à d'autres espaces d'étude).
-
-<p class="center"> **[<img src="figure/zip.png" width="50"/> Accéder aux données source](https://gitlab.huma-num.fr/rysebaert/mta_rzine/-/tree/master/input)** </p>  
-
-Cette extraction est effectuée sur plusieurs fichiers de référence stockés dans l'archive ci-dessus. Ils sont distribués et mis à jour annuellement par l'INSEE et l'IGN. Il s'agit de fichiers bruts, non modifiés au préalable :
+Pour cette analyse, nous mobilisons des indicateurs socio-économiques pour différentes mailles territoriales (communes, IRIS) contenues dans des métropoles françaises. Quatre fichiers de données distribués par l'IGN (géométries) et l'INSEE (données socio-économiques) ont ainsi été prélablement importés :
 
 **1) CONTOUR-IRIS.shp** : Les géométries des IRIS de France métropolitaine et leur commune d'appartenance, au découpage du 1er janvier 2019, fournies par [l'IGN (ADMIN-EXPRESS-COG édition 2019 par territoire)](https://geoservices.ign.fr/documentation/diffusion/telechargement-donnees-libres.html#contoursiris){target="_blank"}. 
 
 **2) table-appartenance-geo-communes-19.xls** : L'appartenance des communes à leur EPCI de rattachement et le type de coopération (communautés de communes, communautés d'agglomération, communautés urbaines, métropoles) au 1er janvier 2019. Ce fichier est distribué par [l'INSEE](https://www.insee.fr/fr/information/2028028){target="_blank"}. 
 
-**3) metropoles.xls** : Un fichier construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
+**3) base-cc-emploi-pop-active-2016.xls** : Des indicateurs sur l'emploi au lieu de travail et la population active occupée en 2016, mis à disposition par [l'INSEE](https://www.insee.fr/fr/statistiques/4171446?sommaire=4171473){target="_blank"}. 
+
+ **4) base-ic-logement-2016.xls** : Des indicateurs décrivant le niveau de motorisation des ménages à l'échelle des IRIS, distribué par l'[INSEE](https://www.insee.fr/fr/statistiques/4228432){target="_blank"}.  Il ne sera utilisé qu'en toute fin de document pour montrer la possible transposition à d'autres espaces d'étude et d'autres mailles territoriales.
+
+
+Un cinquième fichier, **metropole.xls **, construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
 
 Hormis ce dernier fichier, il s'agit donc ici de sources de données officielles, mises à jour annuellement, qui sont associées à un découpage géographique libre de droit et d'utilisation. Cela rend ainsi possible la mise à jour ou la transposition des analyses qui suivront assez aisément. 
 
-Le script ci-dessous importe ces trois fichiers, affecte à chacun des IRIS un code/libellé communal et d'EPCI d'appartenance. Ne sont retenus que les IRIS qui sont inclus dans une des 22 métropoles françaises. Les IRIS sont ensuite fusionnés par commune, EPCI, métropole puis exportés au format geopackage. Ce geopackage contient quatre couches géographiques : celle des IRIS, celle des communes, celles des EPCI intermédiaires, et celles des métropoles. Elles sont enregistrées dans le fichier `input.gpkg` pour éviter d'avoir à rejouer ce script de préparation, un peu volumineux en temps de calcul. 
+Pour rejouer la préparation des données (ou l'adapter à d'autres indicateurs), se reporter à ce script R. 
 
-```{r prepare_geom, echo = TRUE, eval= TRUE, message=FALSE, warning=FALSE}
-# Import des géométries IRIS (version 2019-01-01)
-iris <- st_read("input/CONTOURS-IRIS.shp", quiet = TRUE)
 
-# Import de la table d'appartenance commune - métropole + libellés (version 2019-01-01)
-tmp1 <- as.data.frame(read_xls("input/table-appartenance-geo-communes-19.xls", 
-                               col_types = "text", sheet = "COM", skip = 5))
-tmp2 <- as.data.frame(read_xls("input/table-appartenance-geo-communes-19.xls", 
-                               col_types = "text", sheet = "ARM", skip = 5))
-tmp3 <- as.data.frame(read_xls("input/table-appartenance-geo-communes-19.xls", 
-                               col_types = "text", skip = 5,
-                               sheet = "Zones_supra_communales"))
-
-# Combiner ces dataframes d'entrée
-colnames(tmp3)[3] <- "LIB_EPCI"
-metro <- rbind(tmp1, tmp2[, names(tmp1)])
-metro <- merge(metro, tmp3[,c("CODGEO","LIB_EPCI")], by.x = "EPCI", by.y = "CODGEO",
-               all.x = TRUE)
-
-# Sélection de toutes les communes appartenant à une métropole
-metro <- metro[metro$NATURE_EPCI == "ME",]
-
-# Import des EPCI constitutifs des métropoles (s'ils existent ou ont existé)
-epci <- as.data.frame(read_xlsx("input/metropoles.xlsx", col_types = "text",
-                                sheet = "metro"))
-
-# Jointure IRIS - métropoles
-iris <- merge(iris, metro[,c("CODGEO","EPCI","LIB_EPCI")],
-              by.x = "INSEE_COM", by.y = "CODGEO", all.y = TRUE)
-
-# Jointure IRIS - EPCI constitutifs
-iris <- merge(iris, epci[,c("INSEE_COM", "EPCI_SUB", "LIB_EPCI_SUB")], 
-              by = "INSEE_COM", all.x = TRUE)
-
-# Agrégations spatiales
-com <- aggregate(x = iris[,c("NOM_COM", "EPCI", "LIB_EPCI", "EPCI_SUB", "LIB_EPCI_SUB")], 
-                 by = list(INSEE_COM = iris$INSEE_COM),
-                 FUN = head, 1)
-
-epci <- aggregate(x = com[,c("EPCI", "LIB_EPCI", "EPCI_SUB")], 
-                  by = list(LIB_EPCI_SUB = com$LIB_EPCI_SUB),
-                  FUN = head, 1)
-
-metro <- aggregate(x = com[,c("EPCI", "LIB_EPCI")], 
-                   by = list(LIB_EPCI_SUB = com$LIB_EPCI),
-                   FUN = head, 1)
-
-# Communes : retirer Lyon, Marseille et Paris (arrondissements dispo)
-com <- com[!com$INSEE_COM %in% c("75056", "69123", "13055"),]
-iris <- iris[!iris$INSEE_COM %in% c("75056", "69123", "13055"),]
-```
-
+## Présentation des données
 
 Voici le dénombrement de objets géographiques disponible par découpage territorial et métropole.
 
@@ -246,89 +190,19 @@ myft <- autofit(myft)
 myft
 ```
 
-Et l'illustration de l'emprise spatiale de ces découpages territoriaux pour la Métropole du Grand Paris. Les fonctions de représentations cartographiques utilisées dans cette fiche sont issues du package `mapsf`, dont l'usage et la documentation sont très bien détaillés sur ce [site Web](https://riatelab.github.io/mapsf/). L'objet de cette fiche n'étant pas de traiter de la cartographie thématique, nous ne détaillerons pas outre mesure ces fonctions de représentation.  
 
-```{r layer_presentation, echo = TRUE, eval = TRUE, message=FALSE, warning=FALSE}
-# Sélection de la Métropole du Grand Paris
-Sel <- "Métropole du Grand Paris" 
-tmp <- com[com$LIB_EPCI ==  Sel,]
-tmp2 <- iris[iris$LIB_EPCI ==  Sel,]
-tmp3 <- epci[epci$LIB_EPCI ==  Sel,]
-tmp4 <- metro[metro$LIB_EPCI ==  Sel,]
+Nous importons ici le fichier 
 
-# Theme cartographique
-mf_theme(bg = NA, fg = NA, mar = c(0, 0, 0, 0), tab = FALSE, 
-         pos = "left", inner = TRUE, line = 1.3, cex = 1, font = 2)
-
-# Couches géographiques
-mf_init(tmp4, expandBB = c(0,0.2,0,0)) # Initialiser l'emprise de la carte (Métro du Grand Paris)
-mf_shadow(tmp4, col = "#616161", cex = 0.5, add = TRUE) # Ombrage 
-mf_map(tmp2, col = "peachpuff", border = "lightgrey", lwd = 0.2, add = TRUE) # IRIS
-mf_map(tmp, col = NA, border = "black", lwd = 0.5, add = TRUE) # Communes
-mf_map(tmp3, col = NA, border = "darkred", lwd = 1, add = TRUE) # EPCI
-mf_map(tmp4, col = NA, border = "black", lwd = 2, add = TRUE) # Métropole 
-
-# Légende
-legend("left", legend=c("Métropole", "EPCI", "Communes", "IRIS"),
-       col=c("black", "darkred", "black", "lightgrey"), lty = 1,
-       lwd = c(2, 1, 0.5, 0.2), box.lty = 0, cex = 0.8)
-
-# Habillage
-mf_title("\n\nDécoupages territoriaux créés à l'issue de la préparation des géométries",
-         fg = "black", cex = .9)
-mf_scale(size = 5, col = "black", pos = c(666000, 6839000))
-mf_credits(txt = "Sources : INSEE, IGN, 2021 / Réalisation : Ronan Ysebaert, RIATE, 2021",
-           pos = "rightbottom", cex = 0.5)
-```
-
-
-
-## Préparation des données attributaires
-
-Nous importons ici le fichier ***base-cc-emploi-pop-active-2016.xls*** mis à disposition par [l'INSEE](https://www.insee.fr/fr/statistiques/4171446?sommaire=4171473){target="_blank"}. Il contient les données communales pour l'emploi au lieu de travail et la population active occupée en 2016, fournies par . Ce jeu de données n'est pas disponible à l'échelle des IRIS.
-
-Le second fichier de données, ***base-ic-logement-2016.xls***, aussi distribué par l'[INSEE](https://www.insee.fr/fr/statistiques/4228432){target="_blank"} à l'échelle des IRIS, permet de disposer d'indicateurs concernant le niveau de motorisation des ménages. Il ne sera utilisé qu'en toute fin de document pour montrer la possible transposition à d'autres espaces d'étude et d'autres mailles territoriales.
+Le second fichier de données,
 
 Les données et géométries utiles sont exportées dans le fichier `input.gpkg` afin d'éviter d'avoir à rejouer le script de préparation des données. 
-```{r attribute_data, echo = TRUE, eval= FALSE, message=FALSE, warning=FALSE}
-# Population active [COMMUNES]
-tmp1 <- as.data.frame(read_xls("input/base-cc-emploi-pop-active-2016.xls", 
-                               sheet = "COM_2016", skip = 5))
-tmp2 <- as.data.frame(read_xls("input/base-cc-emploi-pop-active-2016.xls", 
-                               sheet = "ARM_2016", skip = 5))
-
-# Combiner communes et arrondissements
-df <- rbind(tmp1, tmp2)
-
-# Extraction des indicateurs d'intérêt
-df <- df[,c("CODGEO", "P16_EMPLT","C16_ACTOCC1564")]
-
-# Jointure avec les objets géographiques d'intérêt (appartenant à une métro)
-com <- merge(com, df, by.x = "INSEE_COM", by.y = "CODGEO", all.x = TRUE)
-
-# Motorisation des ménages [IRIS]
-df <- as.data.frame(read_xls("input/base-ic-logement-2016.xls", sheet = "IRIS",
-                             skip = 5))
-
-# Extraction des indicateurs d'intérêt
-df <- df[,c("IRIS", "P16_MEN", "P16_RP_VOIT1P")]
-
-# Jointure avec les objets géographiques d'intérêt (appartenant à une métro)
-iris <- merge(iris, df, by.x = "CODE_IRIS", by.y = "IRIS", all.x = TRUE)
-
-# Sauver les données au format geopackage
-st_write(obj = iris, dsn = "data/input.gpkg", layer = "iris", 
-         delete_layer = TRUE, quiet = TRUE)
-st_write(obj = com, dsn = "data/input.gpkg", layer = "com", 
-         delete_layer = TRUE, quiet = TRUE)
-st_write(obj = epci, dsn = "data/input.gpkg", layer = "epci", 
-         delete_layer = TRUE, quiet = TRUE)
-st_write(obj = metro, dsn = "data/input.gpkg", layer = "metro", 
-         delete_layer = TRUE, quiet = TRUE)
-```
 
 
-<br>
+Et l'illustration de l'emprise spatiale de ces découpages territoriaux pour la Métropole du Grand Paris. Les fonctions de représentations cartographiques utilisées dans cette fiche sont issues du package `mapsf`, dont l'usage et la documentation sont très bien détaillés sur ce [site Web](https://riatelab.github.io/mapsf/). L'objet de cette fiche n'étant pas de traiter de la cartographie thématique, nous ne détaillerons pas outre mesure ces fonctions de représentation.  
+
+
+
+
 
 
 # Initialisation de l'analyse
