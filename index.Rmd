@@ -267,7 +267,7 @@ invisible(lapply(my_packages, library,  character.only = TRUE))
 
 ## Import des données
 
-<p class="center"> **Télécharger les données [<img src="figure/zip.png" width="50"/>](https://github.com/rysebaert/mta_rzine/blob/d8ad5e6e91f61ee1407b2a7e5505de95f8c71657/data.zip)**</p>  
+<p class="center"> **Télécharger les données [<img src="figure/zip.png" width="50"/>](https://github.com/rysebaert/mta_rzine/raw/d8ad5e6e91f61ee1407b2a7e5505de95f8c71657/data.zip)**</p>  
 
 Pour rejouer l'analyse, décompressez les données contenues dans l'archive [data.zip](https://github.com/rysebaert/mta_rzine/blob/d8ad5e6e91f61ee1407b2a7e5505de95f8c71657/data.zip) puis ouvrez les couches `com` et `epci` contenues dans le geopackage `data.gpkg`.   
 
