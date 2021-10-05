@@ -4,7 +4,7 @@
 
 Fiche méthodologique réalisée par Ronan Ysebaert (UMS RIATE, Université de Paris) et Claude Grasland (FR CIST, Université de Paris, UMR Géographie-cités)
 
--> [Consulter](https://rysebaert.gitpages.huma-num.fr/mta_rzine)
+-> [Consulter](https://rzine-reviews.github.io/mta_rzine/)
 
 
 ## Une publication rzine

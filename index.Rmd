@@ -182,11 +182,11 @@ Cinq sources de données seront mobilisées dans cette analyse :
 
  **4)** [**Logement en 2016**]((https://www.insee.fr/fr/statistiques/4228432){target="_blank"}) : Des indicateurs décrivant le niveau de motorisation des ménages, distribué par l' INSEE à l'échelle des IRIS.  
 
-Un cinquième fichier, [**metropole.xls **](https://github.com/rysebaert/mta_rzine/blob/main/data/metropoles.xlsx), construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
+Un cinquième fichier, [**metropole.xls **](https://github.com/rzine-reviews/mta_rzine/raw/main/data/metropoles.xlsx), construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
 
 Hormis ce dernier fichier, il s'agit donc ici de sources de données officielles, mises à jour annuellement, qui sont associées à un découpage géographique libre de droit et d'utilisation. Cela rend ainsi possible la mise à jour ou la transposition des analyses qui suivent assez aisément. 
 
-Pour rejouer la préparation des données - jointures attributaires, sélection des métropoles, agrégation par clé d'appartenance territoiriale - se reporter à ce [script R](https://github.com/rysebaert/mta_rzine/blob/main/prepa.R).
+Pour rejouer la préparation des données - jointures attributaires, sélection des métropoles, agrégation par clé d'appartenance territoiriale - se reporter à ce [script R](https://github.com/rzine-reviews/mta_rzine/blob/main/prepa.R).
 
 
 
@@ -252,11 +252,11 @@ ft(tmp, id_num = NULL)
 
 Cinq packages R sont requis pour reproduire les analyses présentées dans cette fiche. 
 
-- `MTA`, pour la mesure des écarts multiscalaires.  
-- `sf`, pour la manipulation et le traitement de données géographiques.
-- `mapsf`, pour les représentations cartographiques.
-- `ineq`, pour le calcul d'indices économétriques de concentration.
-- `spdep`, pour le calculs des indices d'autocorrélation spatiale. 
+- `MTA`, pour la mesure des écarts multiscalaires  
+- `sf`, pour la manipulation et le traitement de données géographiques
+- `mapsf`, pour les représentations cartographiques
+- `ineq`, pour le calcul d'indices économétriques de concentration
+- `spdep`, pour le calculs des indices d'autocorrélation spatiale 
 
 Le code ci-dessous vérifie que toutes les librairies requises pour jouer cet exemple d'application sont bien installées. Si ce n'est pas le cas elles sont installées puis chargées dans la session de travail. 
 
@@ -1345,6 +1345,7 @@ mf_label(x = com[com$mst == 6,], var = "NOM_COM", col = "black", bg = "white",
          halo = TRUE, overlap = FALSE, cex = 0.7)
 ```
 
+<br>
 
 # Du travail à la maison ?
 
