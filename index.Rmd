@@ -280,25 +280,30 @@ invisible(lapply(my_packages, library,  character.only = TRUE))
 
 ## Import des données
 
+<br/>
 
-<p class="center">[<span style="font-size: 230%;" class="glyphicon glyphicon-download-alt"></span> <br/> Télécharger les données](https://github.com/rysebaert/mta_rzine/raw/d8ad5e6e91f61ee1407b2a7e5505de95f8c71657/data.zip)</p>
+<p class="center">[<span style="font-size: 230%;" class="glyphicon glyphicon-download-alt"></span> <br/> Télécharger les données](https://github.com/rzine-reviews/mta_rzine/raw/main/data.zip)</p>
+
+<br/>
+
+Pour rejouer l'analyse, décompressez les données contenues dans l'archive [data.zip](https://github.com/rzine-reviews/mta_rzine/raw/main/data.zip) puis ouvrez les couches ***com*** et ***epci*** contenues dans le geopackage ***data.gpkg***.   
 
 
-Pour rejouer l'analyse, décompressez les données contenues dans l'archive [data.zip](https://github.com/rysebaert/mta_rzine/blob/d8ad5e6e91f61ee1407b2a7e5505de95f8c71657/data.zip) puis ouvrez les couches `com` et `epci` contenues dans le geopackage `data.gpkg`.   
+```{r import_data_consolidated}
+# Import des données (après les avoir téléchargé et décompressé)
+com <- st_read("data/data.gpkg", layer = "com", quiet = TRUE) 
+epci <- st_read("data/data.gpkg", layer = "epci", quiet = TRUE) 
+```
 
 Nous filtrons ce jeu de données (22 métropoles) pour ne considérer que les unités territoriales qui appartiennent à la Métropole du Grand Paris. 
 
-```{r import_data_consolidated}
-# Import (après avoir téléchargé et décompressé les données)
-com <- st_read("data/data.gpkg", layer = "com", quiet = TRUE) 
-epci <- st_read("data/data.gpkg", layer = "epci", quiet = TRUE) 
-
+```{r import_data_consolidated2}
 # Filtrer sur Paris
 com <- com[com$LIB_EPCI == "Métropole du Grand Paris",]
 epci <- epci[epci$LIB_EPCI == "Métropole du Grand Paris",]
 ```
 
-L'objet `com` contient toutes les informations nécessaires à la réalisation de l'analyse : des identifiants géographiques (code communal et nom de la commune), la métropole d'appartenance de la commune (variable METRO), l'identifiant et le nom de l'EPCI d'appartenance (LIB_EPCI_SUB et POS), des données socio-économiques (P16_EMPLT et C16_ACTOCC15654) et les géométries communales. 
+L'objet ***com*** contient toutes les informations nécessaires à la réalisation de l'analyse : des identifiants géographiques (code communal et nom de la commune), la métropole d'appartenance de la commune (variable *METRO*), l'identifiant et le nom de l'EPCI d'appartenance (*LIB_EPCI_SUB* et *POS*), des données socio-économiques (*P16_EMPLT* et *C16_ACTOCC15654*) et les géométries communales. 
 
 ```{r meta1}
 head(com)
@@ -307,9 +312,9 @@ head(com)
 
 ## Numérateur - dénominateur
 
-`MTA` requiert un **ratio défini par un numérateur et un dénominateur** pour calculer les déviations et redistributions. Nous allons ici mettre en relation l'emploi localisé au lieu de travail (P16_EMPLT) et le lieu de résidences des actifs occupés, âgés de 15 à 64 ans (C16_ACTOCC1564). 
+`MTA` requiert un **ratio défini par un numérateur et un dénominateur** pour calculer les déviations et redistributions. Nous allons ici mettre en relation l'emploi localisé au lieu de travail (*P16_EMPLT*) et le lieu de résidences des actifs occupés, âgés de 15 à 64 ans (*C16_ACTOCC1564*). 
 
-Pour faciliter la réutilisation / mise à jour du code qui suit, le numérateur est renommé `num` et le dénominateur `denom`. Le ratio ciblé est aussi calculé. Ainsi, un indice supérieur à 1 signifie que la commune dispose de plus d'emplois que d'actifs occupés résidents, et réciproquement. 
+Pour faciliter la réutilisation / mise à jour du code qui suit, le numérateur est renommé **num** et le dénominateur **denom**. Le ratio ciblé est aussi calculé. Ainsi, un indice supérieur à 1 signifie que la commune dispose de plus d'emplois que d'actifs occupés résidents, et réciproquement. 
 
 ```{r select_indicators, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
 # Initialisation de l'analyse
@@ -386,9 +391,9 @@ mf_credits(txt = credits, pos = "rightbottom", cex = 0.5)
 
 ## Résumé statistique
 
-L'analyse des ordres de grandeur de la distribution des numérateur, dénominateur et ratio souligne la grande hétérogénéité des situations au sein de la MGP. Certaines communes n'hébergent que quelques centaines d'emplois ou d'actifs, tandis que d'autres plusieurs dizaines de milliers. 
+L'analyse des ordres de grandeur de la distribution des numérateurs, dénominateurs et ratios souligne la grande hétérogénéité des situations au sein de la MGP. Certaines communes n'hébergent que quelques centaines d'emplois ou d'actifs, tandis que d'autres plusieurs dizaines de milliers. 
 
-Dans son ensemble, la MGP cumule 3.9 millions d'emplois, pour 3.1 millions d'actifs occupés au lieu de résidence. Le rapport emploi localisé / actifs occupés est donc excédentaire (1.26 emplois par actif occupé résidant dans la MGP). Cela s'explique naturellement par le fait que les emplois localisés au sein de la MGP sont occupés par des actifs résidant en dehors de la métropole, notamment dans le reste de l'Ile de France. L'INSEE rappelle à ce titre qu'en *2015, plus d’un million d’actifs occupés ne résidant pas dans la Métropole du Grand Paris s’y rendent quotidiennement pour travailler. Ils occupent 26 % des emplois parisiens* [@insee2019]. Les flux en sens inverse sont bien moindre, même si une partie des habitants de la MGP travaillent en dehors de celle-ci, en Grande Couronne ou hors Ile-de-France.
+Dans son ensemble, la MGP cumule 3,9 millions d'emplois, pour 3,1 millions d'actifs occupés au lieu de résidence. Le rapport emploi localisé / actifs occupés est donc excédentaire (1,26 emplois par actif occupé résidant dans la MGP). Cela s'explique naturellement par le fait que les emplois localisés au sein de la MGP sont occupés par des actifs résidant en dehors de la métropole, notamment dans le reste de l'Ile de France. L'INSEE rappelle à ce titre qu'en *2015, plus d’un million d’actifs occupés ne résidant pas dans la Métropole du Grand Paris s’y rendent quotidiennement pour travailler. Ils occupent 26 % des emplois parisiens* [@insee2019]. Les flux en sens inverse sont bien moindre, même si une partie des habitants de la MGP travaillent en dehors de celle-ci, en Grande Couronne ou hors Ile-de-France.
 
 ```{r summary_stat, eval=TRUE, message=FALSE, warning=FALSE}
 stat <- st_set_geometry(com, NULL)
@@ -410,7 +415,8 @@ moy
 Une simple représentation du nombre d'emplois et d'actifs occupés permet de juger de l'inégale répartition géographique de ces masses. Bien évidemment structuré selon un modèle centre-périphérie autour de Paris, ces représentations laissent néanmoins percevoir des distinctions entre emplois et actifs. 
 
 ```{r num_denom, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
-#  Deux cartes en vis
+# Découpage de la fenêtre graphique en 1 ligne / 2 colonnes
+# Ce qui permet de mettre deux cartes en vis-à-vis
 par(mfrow = c(1,2))
 
 # Carte du numérateur
@@ -435,6 +441,7 @@ mf_credits(txt = credits, pos = "rightbottom", cex = 0.5)
 La carte choroplèthe qui en découle représente le ratio emploi au lieu de travail / actifs occupés au lieu de résidence. Elle met en évidence les principales configuration spatiales qui structurent la MGP. La Métropole est caractérisée par d'important différentiels puisqu'un rapport de 39 existe entre la commune décrite par la valeur maximale (`r round(max(com$ratio),2)`, 8ème arrondissement de Paris) et celle décrite par la valeur minimale (`r round(min(com$ratio),2)`, Ablon-sur-Seine).
 
 ```{r ratio_choro, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
+# Paramètrage de la fenêtre graphique
 par(mfrow = c(1,1))
 
 # Palette (Color Brewer)
@@ -474,15 +481,17 @@ mf_label(x = com[which.max(com$ratio),], var = "NOM_COM", halo = TRUE, cex = 0.6
 
 - Le **contexte territorial** (`tdev`) calcule l'écart des unités territoriales au regard d'un niveau territorial de référence intermédiaire englobant, définie par une table d'appartenance. Dans ce cas d'étude, il s'agira d'évaluer le positionnement des communes au regard de la moyenne de leur **EPCI d'appartenance**. 
 
-- Le **contexte spatial** (`sdev`) présente cet écart au regard d'un voisinage géographique. Dans `MTA`, le critère de voisinage peut être défini de trois façons : Selon le critère de contiguïté (d'ordre 1, 2 ou n), selon un critère de distance (centroides des unités territoriales localisées à moins de X mètres à vol d'oiseau) ou selon des valeurs inclues dans une matrice de distance, définies par l'utilisateur (temps de transport routiers, par exemple). Dans `MTA`, le calcul des déviations selon les critères de contiguïté ou de distance sont calculés directement par la fonction `sdev`. Si l'utilisateur souhaite importer sa propre matrice de distance, celle-ci doit être contenue dans un *dataframe* avec les champs suivants : id1, id2, mesure de distance. Dans ce cas d'étude et compte-tenu de la relative homogénéité de surface des unités territoriales, nous retiendrons le **critère de contiguïté d'ordre 1**, c'est-à-dire le fait que deux communes soient voisines, pour évaluer la déviation spatiale. 
+- Le **contexte spatial** (`sdev`) présente cet écart au regard d'un voisinage géographique. Dans `MTA`, le critère de voisinage peut être défini de trois façons : Selon le critère de contiguïté (d'ordre 1, 2 ou n), selon un critère de distance (centroides des unités territoriales localisées à moins de X mètres à vol d'oiseau) ou selon des valeurs inclues dans une matrice de distance, définies par l'utilisateur (temps de transport routiers, par exemple). Dans `MTA`, le calcul des déviations selon les critères de contiguïté ou de distance sont calculés directement par la fonction `sdev`. Si l'utilisateur souhaite importer sa propre matrice de distance, celle-ci doit être contenue dans un *dataframe* avec les champs suivants : *id1*, *id2*, mesure de distance. Dans ce cas d'étude et compte-tenu de la relative homogénéité de surface des unités territoriales, nous retiendrons le **critère de contiguïté d'ordre 1**, c'est-à-dire le fait que deux communes soient voisines, pour évaluer la déviation spatiale. 
 
 ### Méthodes absolue et relative
 
 Dans `MTA`, deux méthodes sont proposées pour quantifier ces déviations : 
 
-- La **méthode relative** exprime la position de chaque unité territoriale au regard de la moyenne du contexte de référence, exprimé en indice 100. Cette déviation est calculée de la façon suivante : Déviation Relative (Région i) = 100 * ((Numérateur(Région i)/Dénominateur(Région i)/ Moyenne(contexte de référence)). En conséquence, les unités territoriales caractérisées par un indice inférieur à 100 sont situées sous la moyenne du contexte de référence, et inversement. La méthode relative est donc un **outil de diagnostic** qui permet de mesurer l'intensité des inégalités par rapport à un modèle hypothétique d'équirépartition^[__Équirépartition__ : Pour cette analyse, elle implique des valeurs de ratio identique (numérateur / dénominateur) pour l'ensemble des unités territoriales du contexte d'analyse.].
+- La **méthode relative** exprime la position de chaque unité territoriale au regard de la moyenne du contexte de référence, exprimé en indice 100. Cette déviation est calculée de la façon suivante : Déviation Relative (Région i) = 100 * ((Numérateur(Région i)/Dénominateur(Région i)/ Moyenne(contexte de référence)).    
+En conséquence, les unités territoriales caractérisées par un indice inférieur à 100 sont situées sous la moyenne du contexte de référence, et inversement. La méthode relative est donc un **outil de diagnostic** qui permet de mesurer l'intensité des inégalités par rapport à un modèle hypothétique d'équirépartition^[__Équirépartition__ : Pour cette analyse, elle implique des valeurs de ratio identique (numérateur / dénominateur) pour l'ensemble des unités territoriales du contexte d'analyse.].   
 
-- La **méthode absolue** mesure la redistribution de numérateur nécessaire pour aboutir à une parfaite équirépartition entre les unités territoriales du contexte (même ratio pour toutes les unités territoriales du contexte d'analyse). La redistribution peut être positive (une unité territoriale doit redistribuer aux autres) ou négative (une unité territoriale doit recevoir des autres). Cette déviation est calculée de la façon suivante :  Déviation absolue (Région i) = Numérateur (Région i) - (moyenne de l'espace d'étude * dénominateur (Région i)).  La méthode absolue est plutôt **un outil de prospective** puisqu'elle permet de mesurer la quantité de ressources qu'il faudrait théoriquement déplacer des zones favorisées vers les zones défavorisées pour aboutir à l'équirépartition. Si la ressource n'est pas mobile, elle permet symétriquement de mesurer la quantité de population qui devrait se déplacer des zones défavorisées vers les zones favorisées pour aboutir à l'équirépartition. 
+- La **méthode absolue** mesure la redistribution de numérateur nécessaire pour aboutir à une parfaite équirépartition entre les unités territoriales du contexte (même ratio pour toutes les unités territoriales du contexte d'analyse). La redistribution peut être positive (une unité territoriale doit redistribuer aux autres) ou négative (une unité territoriale doit recevoir des autres). Cette déviation est calculée de la façon suivante :  Dév. absolue (Région i) = Numérateur (Région i) - (moyenne de l'espace d'étude * dénominateur (Région i)).  
+La méthode absolue est plutôt **un outil de prospective** puisqu'elle permet de mesurer la quantité de ressources qu'il faudrait théoriquement déplacer des zones favorisées vers les zones défavorisées pour aboutir à l'équirépartition. Si la ressource n'est pas mobile, elle permet symétriquement de mesurer la quantité de population qui devrait se déplacer des zones défavorisées vers les zones favorisées pour aboutir à l'équirépartition. 
 
 Il faut insister une fois encore sur l'importance du choix du critère d'inégalité Z = V/P qui est introduit dans le modèle `MTA` et sur la signification politique du critère d'équirépartition. Dans l'exemple étudié ici, ce qui est en jeu n'est rien moins que la politique de régulation des constructions de logement et de création d'emplois dans une région marquée de longue date par des déséquilibres persistants.
 
@@ -525,7 +534,7 @@ mf_scale(size = 5, col = "black", pos = c(666000, 6839000))
 mf_credits(txt = credits, pos = "rightbottom", cex = 0.5)
 ```
 
-Cette carte met en évidence les inégalités de concentration d'emplois dans le contexte de la MGP . Les communes au-dessus de la moyenne de la MGP (100 = 1.26 emplois/actif occupé) sont quasi exclusivement toutes situées dans la partie ouest de l'espace d'étude, à Paris ou dans les Hauts de Seine. Les arrondissements du nord-est parisien ont toutefois un ratio inférieur à la moyenne de la MGP. 
+Cette carte met en évidence les inégalités de concentration d'emplois dans le contexte de la MGP . Les communes au-dessus de la moyenne de la MGP (100 = 1,26 emplois/actifs occupés) sont quasi exclusivement toutes situées dans la partie ouest de l'espace d'étude, à Paris ou dans les Hauts de Seine. Les arrondissements du nord-est parisien ont toutefois un ratio inférieur à la moyenne de la MGP. 
 
 Par ailleurs, on peut noter que la totalité  des communes affiche un ratio inférieur à la moyenne de la MGP dans 3 EPCI (Grand Paris Grand Est, Vallée Sud Grand Paris et Grand Paris Sud Est Avenir).
 
@@ -536,15 +545,15 @@ Les deux tables ci-dessous présentent les extrêmes (min et max) pour cette dé
 df <- st_set_geometry(com, NULL)
 df <- df[order(df$gdevrel, decreasing = TRUE), ]
 
-df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel","num","denom","ratio")]
+df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel" ,"num" ,"denom" ,"ratio")]
 ```
 
 ```{r sort_gdevrel_high_hide, eval=TRUE, message=FALSE, warning=FALSE, echo = FALSE}
-# Déviation générale - Déviations les plus élevées
+# Déviation générale - Déviations les moins élevées
 df <- st_set_geometry(com, NULL)
 df <- df[order(df$gdevrel, decreasing = TRUE), ]
 
-ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel","num","denom","ratio")],
+ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel", "num", "denom", "ratio")],
    id_num = c("gdevrel", "num", "denom", "ratio"))
 ```
 
@@ -554,40 +563,44 @@ ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel","num","denom"
 df <- st_set_geometry(com, NULL)
 df <- df[order(df$gdevrel, decreasing = FALSE), ]
 
-df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel","num","denom","ratio")]
+df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel", "num", "denom", "ratio")]
 ```
 
 ```{r sort_gdevrel_low_hide, eval=TRUE, echo = FALSE, message=FALSE, warning=FALSE}
 # Déviation générale - Déviations les moins élevées
 df <- df[order(df$gdevrel, decreasing = FALSE), ]
 
-ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel","num","denom","ratio")],
+ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "gdevrel", "num", "denom", "ratio")],
    id_num = c("gdevrel", "num", "denom", "ratio"))
 ```
 
 
-Outre les arrondissements du centre-ouest parisien, largement excédentaires en terme d'emplois au regard du nombre d'actifs qui y réside, cette analyse fait très nettement ressortir Rungis, son marché et son réseau d'entreprises (plus de 1200 localisés sur le marché), comme en atteste l'extrait de la page Web du Marché International de Rungis. 
+Outre les arrondissements du centre-ouest parisien, largement excédentaires en terme d'emplois au regard du nombre d'actifs qui y réside, cette analyse fait très nettement ressortir Rungis, son marché et son réseau d'entreprises (plus de 1200 localisées sur le marché), comme en atteste l'extrait de la page Web du Marché International de Rungis. 
+                             
 
-![](figure/fig3.PNG)
-
-
-<br>
+<figure class="center">
+  [<img src="figure/fig3.PNG" width="800">](https://www.rungisinternational.com/rungis-emploi/lemploi-a-rungis/){target="_blank"}
+  
+  <figcaption style="font-size:13px;">rungisinternational.com, 2020, Disponible en ligne : [https://www.rungisinternational.com/rungis-emploi/                   ](https://www.rungisinternational.com/rungis-emploi/lemploi-a-rungis/)</figcaption>
+</figure>                   
+                                       
+<br>                                  
 
 
 ###  Courbe de Lorenz et indices économétriques d'inégalité 
 
-La **courbe de Lorenz** est la représentation graphique de la fonction qui, à la part x des détenteurs d'une ordre de grandeur, associe la part y de la grandeur détenue. Initialement développée par Max O. Lorenz en vue d'une représentation des inégalités de distribution de revenu, la méthodologie peut être transposée à d'autres indicateurs. 
+La **courbe de Lorenz** est la représentation graphique de la fonction qui, à la part *x* des détenteurs d'une ordre de grandeur, associe la part *y* de la grandeur détenue. Initialement développée par Max O. Lorenz en vue d'une représentation des inégalités de distribution de revenu, la méthodologie peut être transposée à d'autres indicateurs. 
 
 La représentation de cette courbe nécessite tout d'abord d'ordonner les valeurs sur le ratio de référence, de la valeur la plus faible à la plus élevée. La fréquence cumulée (%) est ensuite calculée pour les numérateurs et dénominateurs séparément. 
 
-En mettant en relation ces fréquences cumulées, on obtient le tracé de cette courbe. L'axe diagonal rouge présente l'équirépartition parfaite (50 % de X disponible pour 50 % de Y). 
+En mettant en relation ces fréquences cumulées, on obtient le tracé de cette courbe. L'axe diagonal rouge présente l'équirépartition parfaite (50 % de *x* disponible pour 50 % de *y*). 
 
 ```{r lorenz1, eval=TRUE, message=FALSE, warning=FALSE}
 # Indice de concentration de Gini
 ind_gini <- Gini(df$num)
 
 # Récupération du tableau de concentration de X par rapport à Y 
-Lc.p <- Lc(df$num,df$den)
+Lc.p <- Lc(df$num, df$den)
 Lp <- data.frame(cumX = 100 * Lc.p$L, cumY = 100 * Lc.p$p)
 Lp$rank <- rank(-Lp$cumX) # Rang de la commune
 
@@ -596,38 +609,38 @@ par(mar = c(4,4,4,4), xaxs = "i", yaxs = "i", pty = "s")
 plot(Lp$cumY, Lp$cumX, type = "l", col = "red", lwd = 2, panel.first = grid(10,10), 
      main = paste0("Courbe de Lorenz (Ind. de Gini = ", round(ind_gini,3),")"),
      ylab = "Emplois au lieu de travail", xlab = "Actifs occupés",
-     ylim = c(0,100),  xlim = c(0,100))  
+     ylim = c(0,100), xlim = c(0,100))  
 
 lines(c(0,100), c(0,100), lwd = 2)
 
 # Aide à l'interprétation
-xy1 <- Lp[which.min(abs(50 - Lp$cumX)),]
-xy2 <- Lp[which.min(abs(50 - Lp$cumY)),]
+xy1 <- Lp[which.min(abs(50 - Lp$cumX)), ]
+xy2 <- Lp[which.min(abs(50 - Lp$cumY)), ]
 xy <- rbind(xy1, xy2)
 points(y = xy[,"cumX"], x = xy[,"cumY"], pch = 21,  cex = 1.5, bg = "red")
 
 text(y = xy[,"cumX"],  x = xy[,"cumY"], pos = 2, cex = 0.6,
-     label = paste(round(xy[,"cumX"],0), round(xy[,"cumY"],0), sep = " , "))
+     label = paste(round(xy[,"cumX"], 0), round(xy[,"cumY"], 0), sep = " , "))
 ```
 
-On peut aussi la construire plus rapidement - mais de façon moins esthétique - à l'aide des fonctions disponibles dans le package ineq.
+On peut aussi la construire plus rapidement - mais de façon moins esthétique - à l'aide des fonctions disponibles dans le package `ineq`.
 
 ```{r lorenz2}
 par(mar = c(4, 4, 4, 4), xaxs = "i", yaxs = "i", pty = "s")
 plot(Lc.p,
-     main = paste("Courbe de Lorenz (Ind. Gini = ", round(ind_gini,3),")"),
+     main = paste("Courbe de Lorenz (Ind. Gini = ", round(ind_gini, 3), ")"),
      ylab = "Emplois au lieu de travail",       
      xlab = "Actifs occupés", ylim = c(0,1), xlim = c(0,1))  
 ```
 
-L'**indice de Gini**^[__Indice de Gini__ : L'indice (ou coefficient) de Gini est un indicateur synthétique permettant de rendre compte du niveau d'inégalité pour une variable et sur une population donnée. Il varie entre 0 (égalité parfaite) et 1 (inégalité extrême). Entre 0 et 1, l'inégalité est d'autant plus forte que l'indice de Gini est élevé.] qui mesure la surface comprise entre la droite d'équirépartition (axe diagonal) et la courbe de Lorenz est ici de 0.596 ce qui indique une très forte concentration des emplois dans quelques communes. On peut aussi l'exprimer à l'aide d'indicateurs caractéristiques déduits de la courbe :
+L'**indice de Gini**^[__Indice de Gini__ : L'indice (ou coefficient) de Gini est un indicateur synthétique permettant de rendre compte du niveau d'inégalité pour une variable et sur une population donnée. Il varie entre 0 (égalité parfaite) et 1 (inégalité extrême). Entre 0 et 1, l'inégalité est d'autant plus forte que l'indice de Gini est élevé.] qui mesure la surface comprise entre la droite d'équirépartition (axe diagonal) et la courbe de Lorenz est ici de 0,596 ce qui indique une très forte concentration des emplois dans quelques communes. On peut aussi l'exprimer à l'aide d'indicateurs caractéristiques déduits de la courbe :
 
-- les 11 communes ou arrondissements les plus favorisées concentrent 49.3% des emplois alors qu'elles ne sont le lieu de résidence que de 22% (100 - 77.98) des actifs occupés (cf table ci-dessous).
-- A l'inverse, les 117 communes ou arrondissements les plus défavorisées sont le lieu de résidence de 50% des actifs occupés pour seulement 14% des emplois.
+- les 11 communes ou arrondissements les plus favorisées concentrent 49,3 % des emplois alors qu'elles ne sont le lieu de résidence que de 22 % (100 - 77,98) des actifs occupés (cf table ci-dessous).
+- A l'inverse, les 117 communes ou arrondissements les plus défavorisées sont le lieu de résidence de 50 % des actifs occupés pour seulement 14 % des emplois.
  
 
 ```{r cumul}
-Lp <- Lp[order(Lp$rank),]
+Lp <- Lp[order(Lp$rank), ]
 head(Lp, 11)
 ```
 
@@ -646,7 +659,7 @@ hoover <- sum(hoov$difabs) / 2
 hoover
 ```
 
-L'indice d'équirépartition est ici de 0.228 ce qui signifie que pour aboutir à une équirépartiton générale des emplois par rapport aux actifs dans le Grand Paris il faudrait soit déplacer 22.8% des emplois des communes favorisés vers les communes défavorisés, soit déplacer 22.8% des actifs des communes défavorisés vers les communes favorisés, soit combiner les deux opérations.
+L'indice d'équirépartition est ici de 0,228 ce qui signifie que pour aboutir à une équirépartiton générale des emplois par rapport aux actifs dans le Grand Paris il faudrait soit déplacer 22,8 % des emplois des communes favorisés vers les communes défavorisés, soit déplacer 22,8 % des actifs des communes défavorisés vers les communes favorisés, soit combiner les deux opérations.
 
 
 <br>
@@ -665,11 +678,19 @@ com$tdevrel <- tdev(x = com, var1 = "num", var2 = "denom",  type = "rel",
                     key = "LIB_EPCI_SUB")
 ```
 
-Cette analyse n'a évidemment d'intérêt que si, et dans la mesure où, on suppose que les responsables politiques de chaque territoire de la MGP sont susceptibles de mener une politique d'emploi à l'intérieur de leurs propres frontières. Or, les 12 territoire du Grand Paris disposent bien d'une compétence partagée avec la Métropole en matière d'aménagement de l'espace. Ils peuvent donc agir sur la répartition des emplois et des actifs. Ainsi le territoire Grand Sud Est Avenir décrit son action  "*[par l’aménagement de zones d’activité économiques ou de projets mixtes, mêlant logements, commerces et activités, à l’instar de l’agroquartier de Noiseau, du centre commercial du Grand Ensemble à Alfortville ou encore de la Ballastière Nord à Limeil-Brévannes](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}*"
+Cette analyse n'a évidemment d'intérêt que si, et dans la mesure où, on suppose que les responsables politiques de chaque territoire de la MGP sont susceptibles de mener une politique d'emploi à l'intérieur de leurs propres frontières. Or, les 12 territoire du Grand Paris disposent bien d'une compétence partagée avec la Métropole en matière d'aménagement de l'espace. Ils peuvent donc agir sur la répartition des emplois et des actifs. Ainsi le territoire Grand Sud Est Avenir décrit son action  "*[par l’aménagement de zones d’activité économiques ou de projets mixtes, mêlant logements, commerces et activités, à l’instar de l’agroquartier de Noiseau, du centre commercial du Grand Ensemble à Alfortville ou encore de la Ballastière Nord à Limeil-Brévannes](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}*".
 
-![](figure/fig_add1.PNG)
+<figure class="center">
+  [<img src="figure/fig_add1.PNG" width="800">](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}
+  
+  <figcaption style="font-size:13px;">sudestavenir.fr, 2021, Disponible en ligne : [https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/                  ](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/)</figcaption>
+</figure>                   
+                                       
+<br>   
 
-Les configurations spatiales révélées par la représentation cartographique sont bien différentes de celles mises en évidence dans le contexte de la MGP, puisqu'on s'intéresse ici au sein de chaque territoire aux communes qui concentrent les emplois au regard de leur population active résidente. Les communes caractérisées par la valeur maximale de déviation au sein de leur EPCI sont labellisées en rouge sur la carte, et la valeur minimale en bleu. 
+
+
+Les configurations spatiales révélées par la représentation cartographique sont bien différentes de celles mises en évidence dans le contexte de la MGP, puisqu'on s'intéresse ici, au sein de chaque territoire, aux communes qui concentrent les emplois au regard de leur population active résidente. Les communes caractérisées par la valeur maximale de déviation au sein de leur EPCI sont labellisées en rouge sur la carte, et la valeur minimale en bleu. 
 
 ```{r tdevrel_map, echo = TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 # Déviation territoriale - cartographie
@@ -702,14 +723,14 @@ mf_label(x = df.min, var = "NOM_COM", cex = 0.6, halo = TRUE, bg = "white",
 
 La sélection des valeurs minimales et maximales pour cette déviation souligne encore ici le comportement singulier de Rungis dans ce contexte territorial : indice 1025, soit une valeur de ratio de concentration de l'emploi 10 fois plus élevé que la moyenne de son EPCI d'appartenance. 
 
-Pour le reste et hormis le cas particulier des arrondissements centraux parisiens, faiblement peuplés à grande concentration d'emplois, les valeurs maximales descendent rapidement sous l'indice 200.
+Pour le reste et hormis le cas particulier des arrondissements centraux parisiens, faiblement peuplés et offrant une grande concentration d'emplois, les valeurs maximales descendent rapidement sous l'indice 200.
 
 ```{r sort_tdevrel_high_hide, eval=TRUE, echo = FALSE, message=FALSE, warning=FALSE}
 # Déviation générale - Déviations les plus élevées
 df <- st_set_geometry(com, NULL)
 df <- df[order(df$tdevrel, decreasing = TRUE), ]
 
-ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom","ratio")],
+ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "denom", "ratio")],
    id_num = c("tdevrel", "num", "denom", "ratio"))
 ```
 
@@ -721,13 +742,13 @@ df <- df[order(df$tdevrel, decreasing = TRUE), ]
 df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom","ratio")]
 ```
 
-S'agissant des valeurs minimales sur cette déviation, plusieurs communes hébergeant un nombre significatif d'actifs (Épinay-sur-Seine, Savigny-sur-Orge, L'Haÿ-les-Roses, supérieur à 10000) sont caractérisées par des valeurs très basses (indice inférieur à 50, ratio deux fois inférieur à la moyenne de leur EPCI d'appartenance).
+S'agissant des valeurs minimales sur cette déviation, plusieurs communes hébergeant un nombre significatif d'actifs (Épinay-sur-Seine, Savigny-sur-Orge, L'Haÿ-les-Roses) sont caractérisées par des valeurs très basses (indice inférieur à 50, ratio deux fois inférieur à la moyenne de leur EPCI d'appartenance).
 
 ```{r sort_tdevrel_low_hide, eval= TRUE, echo = FALSE, message=FALSE, warning=FALSE}
 # Déviation générale - Déviations les moins élevées
 df <- df[order(df$tdevrel, decreasing = FALSE), ]
 
-ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom","ratio")],
+ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "denom", "ratio")],
    id_num = c("tdevrel", "num", "denom", "ratio"))
 ```
 
@@ -735,7 +756,7 @@ ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom"
 # Déviation générale - Déviations les moins élevées
 df <- df[order(df$tdevrel, decreasing = FALSE), ]
 
-df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom","ratio")]
+df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "denom", "ratio")]
 ```
 
 
