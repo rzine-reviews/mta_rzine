@@ -71,7 +71,7 @@ ft <- function(x, id_num){
 ```
 
 <p style="background-color: #dcdcdc ; border-color:navajowhite3; padding: 1em; font-size:115% ; color: CCCCCC">
-Cette fiche présente une **analyse territoriale multiscalaire** menée sur la **concentration de l'emploi** dans les communes de la **Métropole du Grand Paris** (MGP)^[__Métropole__: En France, une métropole est un établissement de coopération intercommunale (EPCI) qui correspond à une des formes les plus intégrées d'intercommunalité. Elle concerne des territoires de plus de 400 000 habitants qui sont situés dans des aires urbaines de plus 650 000 habitants. Au 1er janvier 2019, il existe 21 métropoles. Les métropoles exercent de plein droit, en lieu et place de ses communes membres les compétences en matières d'aménagement de l'espace métropolitain ; de développement et d'aménagement économique, social et culturel ; de politique locale de l'habitat ; de protection et de mise en valeur de l'environnement et de politique du cadre de vie ; de la protection et la mise en valeur de l'environnement.]. Cette analyse reproductible utilise des données de l'INSEE librement accessibles et montre l'usage et l'intérêt des fonctions du package `MTA` (**Multiscalar Territorial Analysis**) pour révéler l'existence d'inégalités territoriales dans un contexte multiscalaire.</p>
+Cette fiche présente une **analyse territoriale multiscalaire** menée sur la **concentration de l'emploi** dans les communes de la **Métropole du Grand Paris** (MGP)^[__Métropole__ : en France, une métropole est un établissement de coopération intercommunale (EPCI) qui correspond à une des formes les plus intégrées d'intercommunalité. Elle concerne des territoires de plus de 400 000 habitants qui sont situés dans des aires urbaines de plus 650 000 habitants. Au 1er janvier 2019, il existe 21 métropoles. Les métropoles exercent de plein droit, en lieu et place de ses communes membres les compétences en matières d'aménagement de l'espace métropolitain ; de développement et d'aménagement économique, social et culturel ; de politique locale de l'habitat ; de protection et de mise en valeur de l'environnement et de politique du cadre de vie ; de la protection et la mise en valeur de l'environnement.]. Cette analyse reproductible utilise des données de l'INSEE librement accessibles et montre l'usage et l'intérêt des fonctions du package `MTA` (**Multiscalar Territorial Analysis**) pour révéler l'existence d'inégalités territoriales dans un contexte multiscalaire.</p>
 
 
 <ul style="background-color: #dcdcdc ; border-color:navajowhite3; padding: 0.8em; font-size:115% ; color: CCCCCC">
@@ -83,7 +83,7 @@ Cette fiche présente une **analyse territoriale multiscalaire** menée sur la *
 
 # Aux origines de MTA...
 
-Le socle méthodologique sur lequel repose le package `MTA` (**Multiscalar Territorial Analysis**) a été conceptualisé et implémenté dans le courant des années 2000 par le **groupe de recherche HyperCarte** [@grasland2005]. Bien qu'il ait été conçu dès le départ pour des applications sur des territoires ou des indicateurs quelconques, il s'est d'abord fait connaître à travers la production de l'hyperAtlas, outil conçu pour analyser les inégalités régionales en Europe, dans le cadre du programme ESPON (*European Spatial Planning Observatory Network*)^[__ESPON__ : Programme de recherche appliquée européen qui vise à produire de la connaissance, des méthode et des préconisations politiques sur les dynamiques territoriales européennes, principalement à l'échelle régionale].
+Le socle méthodologique sur lequel repose le package `MTA` (**Multiscalar Territorial Analysis**) a été conceptualisé et implémenté dans le courant des années 2000 par le **groupe de recherche HyperCarte** [@grasland2005]. Bien qu'il ait été conçu dès le départ pour des applications sur des territoires ou des indicateurs quelconques, il s'est d'abord fait connaître à travers la production de l'hyperAtlas, outil conçu pour analyser les inégalités régionales en Europe, dans le cadre du programme ESPON (*European Spatial Planning Observatory Network*)^[__ESPON__ : programme de recherche appliquée européen qui vise à produire de la connaissance, des méthode et des préconisations politiques sur les dynamiques territoriales européennes, principalement à l'échelle régionale.].
 
 
 ## Hyperatlas : un révélateur des contradictions de la  politique régionale européenne
@@ -98,11 +98,11 @@ Une telle analyse était perturbante pour les décideurs politiques européens c
 
 La contradiction la plus connue concernait l'emboîtement des échelles politiques territoriales [@davezies1997]. Le paradoxe résidait dans le fait qu'une même région pouvait être définie comme désavantagée au niveau européen (et percevoir à ce titre des aides) mais avantagée au niveau national (et obligée de ce fait à reverser des aides aux régions plus défavorisées de son propre pays).  
 
-Mais une seconde contradiction concernait les effets d'accessibilité spatiale et le rôle des acteurs économique dans un contexte d'ouverture des frontières et d'élargissement de l'UE de 15 à 25. L'indicateur de contexte local mettait en effet en valeur des régions plus riches que leurs voisines, alors même qu'elles étaient plus pauvres que la moyenne européenne ou la moyenne nationale. Elle constituaient donc des pics locaux de richesse, Inversement, des régions plus riches que la moyenne européenne ou nationale étaient plus pauvres que leurs voisines et constituaient des territoires localement désavantagés. Or, les économistes spatiaux étaient alors en plein débat (et le sont encore aujourd'hui) sur les effets de ces avantages comparatifs locaux. Pour les partisans du *spillover effect*^[__Spillover effect__ : En économie les effets de spillover (ou de débordement) sont des évènements économiques dans un contexte donné, qui se produisent à cause de quelque chose d'autre dans un contexte apparemment sans rapport.], les pôles de richesse diffuserait la prospérité vers les régions voisines. Tandis que pour les partisans du *backwash effect*^[__Backwash effect__ : Concept issu du champ de l'économétrie spatiale qui stipule que la croissance économique offre des avantages et des coûts dans la région où elle se produit. Cela a un impact positif sur les territoires voisins si les emplois, la population et la richesse se répandent dans ces communautés. Au contraire, cela a des effets néfastes sur les localités voisines si la croissance dans la région centrale attire des les populations et les activités des régions périphériques. L'effet backwash se produit si les effets négatifs dominent et que l'activité économique dans les régions périphériques diminue.], ce serait plutôt le contraire [@oecd2001], [@camagni2009].
+Mais une seconde contradiction concernait les effets d'accessibilité spatiale et le rôle des acteurs économique dans un contexte d'ouverture des frontières et d'élargissement de l'UE de 15 à 25. L'indicateur de contexte local mettait en effet en valeur des régions plus riches que leurs voisines, alors même qu'elles étaient plus pauvres que la moyenne européenne ou la moyenne nationale. Elle constituaient donc des pics locaux de richesse, Inversement, des régions plus riches que la moyenne européenne ou nationale étaient plus pauvres que leurs voisines et constituaient des territoires localement désavantagés. Or, les économistes spatiaux étaient alors en plein débat (et le sont encore aujourd'hui) sur les effets de ces avantages comparatifs locaux. Pour les partisans du *spillover effect*^[__Spillover effect__ : en économie les effets de spillover (ou de débordement) sont des évènements économiques dans un contexte donné, qui se produisent à cause de quelque chose d'autre dans un contexte apparemment sans rapport.], les pôles de richesse diffuserait la prospérité vers les régions voisines. Tandis que pour les partisans du *backwash effect*^[__Backwash effect__ : concept issu du champ de l'économétrie spatiale qui stipule que la croissance économique offre des avantages et des coûts dans la région où elle se produit. Cela a un impact positif sur les territoires voisins si les emplois, la population et la richesse se répandent dans ces communautés. Au contraire, cela a des effets néfastes sur les localités voisines si la croissance dans la région centrale attire des les populations et les activités des régions périphériques. L'effet backwash se produit si les effets négatifs dominent et que l'activité économique dans les régions périphériques diminue.], ce serait plutôt le contraire [@oecd2001], [@camagni2009].
 
 L'intérêt de combiner les trois types d'inégalités a conduit le programme ESPON à financer le développement  de l'application **HyperAtlas** [@martin2004], [@thomas2008] et [@lerubrus2011], qui permet de mener une analyse territoriale multiscalaire dans un environnement logiciel dédié.
 
-Cet outil a bénéficié d'une importante reconnaissance autour de 2010, et plusieurs versions de cet outil ont été implémentées dans divers projets européens, pour notamment permettre l'analyse des disparités régionales sur des indicateurs socio-économiques à l'échelle de l'Union Européenne [@espon2004], [@ep2007], ([ESPON, 2011](https://www.espon.eu/tools-maps/espon-hyperatlas){target="_blank"}). Cet outil a aussi suscité l'intérêt dans l'Éducation Nationale, notamment pour proposer aux élèves de 1ère un cadre méthodologique adapté pour [*enseigner les disparités socio-spatiales au sein de l'UE*](https://www.ac-paris.fr/portail/jcms/p1_986484/enseigner-les-disparites-socio-spatiales-au-sein-de-l-ue-avec-hyperatlas-1ere){target="_blank"}. 
+Cet outil a bénéficié d'une importante reconnaissance autour de 2010, et plusieurs versions de cet outil ont été implémentées dans divers projets européens, pour notamment permettre l'analyse des disparités régionales sur des indicateurs socio-économiques à l'échelle de l'Union Européenne [@espon2004], [@ep2007], ([ESPON, 2020](https://www.espon.eu/HyperAtlas-3.0){target="_blank"}). Cet outil a aussi suscité l'intérêt dans l'Éducation Nationale, notamment pour proposer aux élèves de 1ère un cadre méthodologique adapté pour [*enseigner les disparités socio-spatiales au sein de l'UE*](https://www.ac-paris.fr/portail/jcms/p1_986484/enseigner-les-disparites-socio-spatiales-au-sein-de-l-ue-avec-hyperatlas-1ere){target="_blank"}. 
 
 [Cette présentation](https://riate.cnrs.fr/wp-content/uploads/2015/04/20150402_HyperAtlas.pdf){target="_blank"} réalisée en avril 2015 lors d'un atelier organisé au Commissariat Général à l'Égalité des Territoires (ANCT désormais) résume aussi de façon synthétique l'histoire et le fonctionnement de cet outil. 
 
@@ -147,7 +147,7 @@ Un préalable essentiel à l'analyse multiscalaire consiste à identifier un ind
 
 Sur ces bases, nous proposons ici le déroulé d'une possible analyse multiscalaire, qui porte sur le rapport entre l'emploi au lieu de travail au regard des actifs occupés au lieu de résidence dans les communes de la métropole du Grand Paris en 2016. Dans la logique d'équirépartition qui a été expliquée précédemment, les emplois constituent donc une ressource (V) et les actifs occupés  la population de référence (P). Le rapport Z = V/P permet donc de mesurer dans quelle mesure le nombre d'emploi disponible en un lieu est en adéquation avec le population active présente. 
 
-Les contextes de déviation utilisés seront la Métropole du Grand Paris (déviation générale), l'EPCI^[__EPCI__: Établissement de coopération intercommunale. Il s'agit d'une structure administrative regroupant plusieurs communes afin d'exercer certaines de leurs compétences en commun. Aujourd'hui en principe, chaque commune doit appartenir à un EPCI à fiscalité propre, en vertu de la loi NOTRe de 2015.] d'appartenance (déviation territoriale) et enfin les unités territoriales qui partagent une limite communale (déviation spatiale).
+Les contextes de déviation utilisés seront la Métropole du Grand Paris (déviation générale), l'EPCI^[__EPCI__ : établissement de coopération intercommunale. Il s'agit d'une structure administrative regroupant plusieurs communes afin d'exercer certaines de leurs compétences en commun. Aujourd'hui en principe, chaque commune doit appartenir à un EPCI à fiscalité propre, en vertu de la loi NOTRe de 2015.] d'appartenance (déviation territoriale) et enfin les unités territoriales qui partagent une limite communale (déviation spatiale).
 
 <br>
 
@@ -159,7 +159,7 @@ Les emplois sont-ils situés à proximité du domicile des employés ? Peut-on t
 
 Nul besoin d'être expert en géographie de l'emploi pour percevoir l'inégale répartition de l'emploi sur le territoire de la Métropole du Grand Paris : certaines municipalités concentrant les emplois (la Défense, Paris), d'autres communes ayant une vocation quasiment exclusivement résidentielles (banlieue pavillonnaire, "cité-dortoirs").
 
-Raisonner sur l'asymétrie qui existe entre offre d'emploi et lieu de résidence des actifs ne constitue pas une nouveauté. Ce champ de recherche a notamment été bien investigué par Kain avec le concept du *spatial mismatch*^[__Spatial mismatch__ : Exprime l'inadéquation entre le lieu de résidence des ménages à faible revenu et les opportunités d'emploi convenables. Ce concept a été initialement utilisé aux États-Unis pour des études portant sur la population Afro-américaine, en raison de la ségrégation résidentielle, de la restructuration économique et de la suburbanisation de l'emploi.] appliqué à l'inégale répartition de l'emploi pour certaines catégories de population (les afro-américains) [@kain1968], [@kain1992]. Dans la région parisienne, les travaux récents de l'UMR Géographie-cités autour du [Mobiliscope](https://mobiliscope.parisgeo.cnrs.fr/fr){target="_blank"} a permis de mettre en évidence les inégalités liées à l'accès à l'emploi, au regard des lieux de résidence des actifs et leurs spécificités (catégories socio-professionnelles, etc.) et les coûts de transport que ceux-ci induisent [@leroux2017].
+Raisonner sur l'asymétrie qui existe entre offre d'emploi et lieu de résidence des actifs ne constitue pas une nouveauté. Ce champ de recherche a notamment été bien investigué par Kain avec le concept du *spatial mismatch*^[__Spatial mismatch__ : exprime l'inadéquation entre le lieu de résidence des ménages à faible revenu et les opportunités d'emploi convenables. Ce concept a été initialement utilisé aux États-Unis pour des études portant sur la population Afro-américaine, en raison de la ségrégation résidentielle, de la restructuration économique et de la suburbanisation de l'emploi.] appliqué à l'inégale répartition de l'emploi pour certaines catégories de population (les afro-américains) [@kain1968], [@kain1992]. Dans la région parisienne, les travaux récents de l'UMR Géographie-cités autour du [Mobiliscope](https://mobiliscope.parisgeo.cnrs.fr/fr){target="_blank"} a permis de mettre en évidence les inégalités liées à l'accès à l'emploi, au regard des lieux de résidence des actifs et leurs spécificités (catégories socio-professionnelles, etc.) et les coûts de transport que ceux-ci induisent [@leroux2017].
 
 La vocation de cette analyse n'est bien entendu pas de révolutionner ce champ de recherche déjà fécond, mais plutôt d'apporter des compléments méthodologiques pour explorer ce type de données. Car plus méconnus sont les ordres de grandeur qui structurent ces inégalités, que ce soit en terme de masse d'emplois ou de configurations territoriales plus spécifiques (au regard de la Métropole du Grand Paris, au sein des EPCI ou dans un voisinage géographique local). Ces contextes territoriaux sont par ailleurs des échelons essentiels de prise de décision politique pour l'aménagement et l'organisation sociale, et de l'emploi, au niveau local:
 
@@ -180,7 +180,7 @@ Cinq sources de données seront mobilisées dans cette analyse :
 
 **3)** [**Emploi-activité en 2016**](https://www.insee.fr/fr/statistiques/4171446?sommaire=4171473){target="_blank"} : Des indicateurs sur l'emploi au lieu de travail et la population active occupée en 2016, mis à disposition par l'INSEE à l'échelon communal. 
 
- **4)** [**Logement en 2016**]((https://www.insee.fr/fr/statistiques/4228432){target="_blank"}) : Des indicateurs décrivant le niveau de motorisation des ménages, distribué par l' INSEE à l'échelle des IRIS.  
+ **4)** [**Logement en 2016**](https://www.insee.fr/fr/statistiques/4228432){target="_blank"} : Des indicateurs décrivant le niveau de motorisation des ménages, distribué par l' INSEE à l'échelle des IRIS.  
 
 Un cinquième fichier, [**metropole.xls **](https://github.com/rzine-reviews/mta_rzine/raw/main/data/metropoles.xlsx), construit par nos soins, à partir des sites Web de référence des métropoles, et qui vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris) qui la constitue. Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérant, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
 
@@ -488,7 +488,7 @@ mf_label(x = com[which.max(com$ratio),], var = "NOM_COM", halo = TRUE, cex = 0.6
 Dans `MTA`, deux méthodes sont proposées pour quantifier ces déviations : 
 
 - La **méthode relative** exprime la position de chaque unité territoriale au regard de la moyenne du contexte de référence, exprimé en indice 100. Cette déviation est calculée de la façon suivante : Déviation Relative (Région i) = 100 * ((Numérateur(Région i)/Dénominateur(Région i)/ Moyenne(contexte de référence)).    
-En conséquence, les unités territoriales caractérisées par un indice inférieur à 100 sont situées sous la moyenne du contexte de référence, et inversement. La méthode relative est donc un **outil de diagnostic** qui permet de mesurer l'intensité des inégalités par rapport à un modèle hypothétique d'équirépartition^[__Équirépartition__ : Pour cette analyse, elle implique des valeurs de ratio identique (numérateur / dénominateur) pour l'ensemble des unités territoriales du contexte d'analyse.].   
+En conséquence, les unités territoriales caractérisées par un indice inférieur à 100 sont situées sous la moyenne du contexte de référence, et inversement. La méthode relative est donc un **outil de diagnostic** qui permet de mesurer l'intensité des inégalités par rapport à un modèle hypothétique d'équirépartition^[__Équirépartition__ : pour cette analyse, elle implique des valeurs de ratio identique (numérateur / dénominateur) pour l'ensemble des unités territoriales du contexte d'analyse.].   
 
 - La **méthode absolue** mesure la redistribution de numérateur nécessaire pour aboutir à une parfaite équirépartition entre les unités territoriales du contexte (même ratio pour toutes les unités territoriales du contexte d'analyse). La redistribution peut être positive (une unité territoriale doit redistribuer aux autres) ou négative (une unité territoriale doit recevoir des autres). Cette déviation est calculée de la façon suivante :  Dév. absolue (Région i) = Numérateur (Région i) - (moyenne de l'espace d'étude * dénominateur (Région i)).  
 La méthode absolue est plutôt **un outil de prospective** puisqu'elle permet de mesurer la quantité de ressources qu'il faudrait théoriquement déplacer des zones favorisées vers les zones défavorisées pour aboutir à l'équirépartition. Si la ressource n'est pas mobile, elle permet symétriquement de mesurer la quantité de population qui devrait se déplacer des zones défavorisées vers les zones favorisées pour aboutir à l'équirépartition. 
@@ -512,7 +512,7 @@ Des indicateurs statistiques et des représentation graphiques sont généraleme
 
 ### Calcul des déviations et cartographie
 
-La **déviation générale** est calculée avec la fonction `gdev` et calcule **la déviation à la moyenne de l'ensemble de la MGP**. Elle prend en entrée le numérateur (`num`) et le dénominateur (`denom`). La déviation relative est calculée avec l'argument `type = rel`).
+La **déviation générale** est calculée avec la fonction `gdev` et calcule **la déviation à la moyenne de l'ensemble de la MGP**. Elle prend en entrée le numérateur (*num*) et le dénominateur (*denom*). La déviation relative est calculée avec l'argument `type = rel`).
 
 ```{r gdevrel, eval=TRUE, message=FALSE, warning=FALSE}
 # Déviation générale
@@ -534,7 +534,7 @@ mf_scale(size = 5, col = "black", pos = c(666000, 6839000))
 mf_credits(txt = credits, pos = "rightbottom", cex = 0.5)
 ```
 
-Cette carte met en évidence les inégalités de concentration d'emplois dans le contexte de la MGP . Les communes au-dessus de la moyenne de la MGP (100 = 1,26 emplois/actifs occupés) sont quasi exclusivement toutes situées dans la partie ouest de l'espace d'étude, à Paris ou dans les Hauts de Seine. Les arrondissements du nord-est parisien ont toutefois un ratio inférieur à la moyenne de la MGP. 
+Cette carte met en évidence les inégalités de concentration d'emplois dans le contexte de la MGP. Les communes au-dessus de la moyenne de la MGP (100 = 1,26 emplois/actifs occupés) sont quasi exclusivement toutes situées dans la partie ouest de l'espace d'étude, à Paris ou dans les Hauts de Seine. Les arrondissements du nord-est parisien ont toutefois un ratio inférieur à la moyenne de la MGP. 
 
 Par ailleurs, on peut noter que la totalité  des communes affiche un ratio inférieur à la moyenne de la MGP dans 3 EPCI (Grand Paris Grand Est, Vallée Sud Grand Paris et Grand Paris Sud Est Avenir).
 
@@ -581,7 +581,7 @@ Outre les arrondissements du centre-ouest parisien, largement excédentaires en 
 <figure class="center">
   [<img src="figure/fig3.PNG" width="800">](https://www.rungisinternational.com/rungis-emploi/lemploi-a-rungis/){target="_blank"}
   
-  <figcaption style="font-size:13px;">rungisinternational.com, 2020, Disponible en ligne : [https://www.rungisinternational.com/rungis-emploi/                   ](https://www.rungisinternational.com/rungis-emploi/lemploi-a-rungis/)</figcaption>
+  <figcaption style="font-size:13px;">rungisinternational.com, 2021, Disponible en ligne : [https://www.rungisinternational.com/rungis-emploi/                   ](https://www.rungisinternational.com/rungis-emploi/lemploi-a-rungis/){target="_blank"}</figcaption>
 </figure>                   
                                        
 <br>                                  
@@ -633,7 +633,7 @@ plot(Lc.p,
      xlab = "Actifs occupés", ylim = c(0,1), xlim = c(0,1))  
 ```
 
-L'**indice de Gini**^[__Indice de Gini__ : L'indice (ou coefficient) de Gini est un indicateur synthétique permettant de rendre compte du niveau d'inégalité pour une variable et sur une population donnée. Il varie entre 0 (égalité parfaite) et 1 (inégalité extrême). Entre 0 et 1, l'inégalité est d'autant plus forte que l'indice de Gini est élevé.] qui mesure la surface comprise entre la droite d'équirépartition (axe diagonal) et la courbe de Lorenz est ici de 0,596 ce qui indique une très forte concentration des emplois dans quelques communes. On peut aussi l'exprimer à l'aide d'indicateurs caractéristiques déduits de la courbe :
+L'**indice de Gini**^[__Indice de Gini__ : l'indice (ou coefficient) de Gini est un indicateur synthétique permettant de rendre compte du niveau d'inégalité pour une variable et sur une population donnée. Il varie entre 0 (égalité parfaite) et 1 (inégalité extrême). Entre 0 et 1, l'inégalité est d'autant plus forte que l'indice de Gini est élevé.] qui mesure la surface comprise entre la droite d'équirépartition (axe diagonal) et la courbe de Lorenz est ici de 0,596 ce qui indique une très forte concentration des emplois dans quelques communes. On peut aussi l'exprimer à l'aide d'indicateurs caractéristiques déduits de la courbe :
 
 - les 11 communes ou arrondissements les plus favorisées concentrent 49,3 % des emplois alors qu'elles ne sont le lieu de résidence que de 22 % (100 - 77,98) des actifs occupés (cf table ci-dessous).
 - A l'inverse, les 117 communes ou arrondissements les plus défavorisées sont le lieu de résidence de 50 % des actifs occupés pour seulement 14 % des emplois.
@@ -645,7 +645,7 @@ head(Lp, 11)
 ```
 
 
-Dans une logique de redistribution, on peut également calculer **l'indice d'équirépartition de Hoover**^[__Indice de Hoover__ : L'indice de Hoover (aussi appelé indice de différenciation) exprime la part de la population X (ou de la population Y) qu'il faudrait déplacer d'une maille à une autre pour aboutir à l'équirépartition. Il varie entre 0 (équirépartition parfaite) et 1 (concentration maximale).] qui indique la quantité d'emplois (ou d'actifs) qui devraient être déplacés d'une commune à une autre pour aboutir à l'équirépartition.
+Dans une logique de redistribution, on peut également calculer **l'indice d'équirépartition de Hoover**^[__Indice de Hoover__ : l'indice de Hoover (aussi appelé indice de différenciation) exprime la part de la population *X* (ou de la population *Y*) qu'il faudrait déplacer d'une maille à une autre pour aboutir à l'équirépartition. Il varie entre 0 (équirépartition parfaite) et 1 (concentration maximale).] qui indique la quantité d'emplois (ou d'actifs) qui devrait être déplacés d'une commune à une autre pour aboutir à l'équirépartition.
 
 ```{r hoover, echo = TRUE}
 # Construction de l'indice de Hoover
@@ -678,12 +678,12 @@ com$tdevrel <- tdev(x = com, var1 = "num", var2 = "denom",  type = "rel",
                     key = "LIB_EPCI_SUB")
 ```
 
-Cette analyse n'a évidemment d'intérêt que si, et dans la mesure où, on suppose que les responsables politiques de chaque territoire de la MGP sont susceptibles de mener une politique d'emploi à l'intérieur de leurs propres frontières. Or, les 12 territoire du Grand Paris disposent bien d'une compétence partagée avec la Métropole en matière d'aménagement de l'espace. Ils peuvent donc agir sur la répartition des emplois et des actifs. Ainsi le territoire Grand Sud Est Avenir décrit son action  "*[par l’aménagement de zones d’activité économiques ou de projets mixtes, mêlant logements, commerces et activités, à l’instar de l’agroquartier de Noiseau, du centre commercial du Grand Ensemble à Alfortville ou encore de la Ballastière Nord à Limeil-Brévannes](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}*".
+Cette analyse n'a évidemment d'intérêt que si, et dans la mesure où, on suppose que les responsables politiques de chaque territoires de la MGP sont susceptibles de mener une politique d'emploi à l'intérieur de leurs propres frontières. Or, les 12 territoire du Grand Paris disposent bien d'une compétence partagée avec la Métropole en matière d'aménagement de l'espace. Ils peuvent donc agir sur la répartition des emplois et des actifs. Ainsi le territoire Grand Sud Est Avenir décrit son action  "*[par l’aménagement de zones d’activité économiques ou de projets mixtes, mêlant logements, commerces et activités, à l’instar de l’agroquartier de Noiseau, du centre commercial du Grand Ensemble à Alfortville ou encore de la Ballastière Nord à Limeil-Brévannes](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}*".
 
 <figure class="center">
   [<img src="figure/fig_add1.PNG" width="800">](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}
   
-  <figcaption style="font-size:13px;">sudestavenir.fr, 2021, Disponible en ligne : [https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/                  ](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/)</figcaption>
+  <figcaption style="font-size:13px;">sudestavenir.fr, 2021, Disponible en ligne : [https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}</figcaption>
 </figure>                   
                                        
 <br>   
@@ -739,7 +739,7 @@ ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "deno
 df <- st_set_geometry(com, NULL)
 df <- df[order(df$tdevrel, decreasing = TRUE), ]
 
-df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel","num","denom","ratio")]
+df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "denom", "ratio")]
 ```
 
 S'agissant des valeurs minimales sur cette déviation, plusieurs communes hébergeant un nombre significatif d'actifs (Épinay-sur-Seine, Savigny-sur-Orge, L'Haÿ-les-Roses) sont caractérisées par des valeurs très basses (indice inférieur à 50, ratio deux fois inférieur à la moyenne de leur EPCI d'appartenance).
@@ -763,22 +763,32 @@ df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "tdevrel", "num", "denom", "ra
 <br>
 Cette analyse donne aussi à voir la proximité de communes aux caractéristiques en terme d'emplois bien différentes : Fontenay-sous-Bois, qui au sein de son EPCI d'appartenance affiche le plus d'emplois au regard de son nombre d'actifs. La mairie de Fontenay aime ainsi à se présenter comme "la petite Défense de l'Est-Parisien"...
 
-![](figure/fig4.PNG)
+<figure class="center">
+  [<img src="figure/fig4.PNG" width="800">](https://www.fontenay.fr/economie-593.html){target="_blank"}
+  
+  <figcaption style="font-size:13px;">www.fontenay.fr, 2021, Disponible en ligne : [https://www.fontenay.fr/economie-593.html](https://www.fontenay.fr/economie-593.html){target="_blank"}</figcaption>
+</figure>                   
+                                       
+<br>         
 
-<br>
+
 A quelques kilomètres seulement, Le Perreux-sur-Marne concentre le moins d'emplois dans ce même contexte territorial. Les commentaires laissé sur [ville-ideale.fr](https://www.ville-ideale.fr/){target="_blank"}, un site Web qui vise à récupérer des notes et des avis des habitants sur leur ville et proposer des classements entre celles-ci identifie bien les contradictions inhérentes à ce type de communes : d'un côté un cadre de vie globalement agréable, bien connecté au reste de la Métropole. Et de l'autre des critiques sur le fait que les constructions récentes de logements d'habitation sont jugés trop massifs et l'offre commerciale de proximité pas suffisamment présente sur le territoire communal.
 
-![](figure/fig5.PNG)
-
-
+<figure class="center">
+  [<img src="figure/fig5.PNG" width="800">](https://www.ville-ideale.fr/le-perreux-sur-marne_94058#commentaires){target="_blank"}
+  
+  <figcaption style="font-size:13px;">www.ville-ideale.fr, 2020, Disponible en ligne : [https://www.ville-ideale.fr/le-perreux-sur-marne_94058](https://www.ville-ideale.fr/le-perreux-sur-marne_94058#commentaires){target="_blank"}</figcaption>
+</figure>                   
+                                       
+<br>         
 
 ### Boites à moustaches
 
-La méthode des boites à moustache, ou *boxplot*, est un moyen efficace pour visualiser et comparer les **ordres de grandeur de distributions** au sein de plusieurs populations de tailles différentes.
+La méthode de représentation en boîte à moustache, ou *boxplot*, est un moyen efficace pour visualiser et comparer les **ordres de grandeur de distributions** au sein de plusieurs populations de tailles différentes.
 
-Pour réaliser cette représentation, quelques pré-traitements sont nécessaires afin d'améliorer la visualisation. Les géométries sont retirées du jeu de données initial, les valeurs sont ordonnées selon la moyenne du ratio, on affecte un vecteur de couleur pour ces box-plot.
+Pour réaliser cette représentation, quelques pré-traitements sont nécessaires afin d'améliorer la visualisation. Les géométries sont retirées du jeu de données initial, les valeurs sont ordonnées selon la moyenne du ratio, on affecte un vecteur de couleur pour ces *boxplots*.
 
-La *boxplot* prend alors en entrée en ordonnées les valeurs de la déviation générale, et regroupe en abscisses ces valeurs par EPCI. L'argument `varwidth` permet de faire en sorte que la largeur de la boîte à moustache est proportionnelle au nombre d'observations (le nombre de communes). L'argument `range` gère les valeurs extrêmes et les limites des moustaches : Les valeurs supérieures et inférieures à la valeur de `range` fois la valeur de l'interquartile ne sont pas inclues dans les moustaches. Par défaut il est égal à 1.5. S'il est paramétré à 0, les moustaches vont jusqu'aux valeurs extrêmes. 
+La *boxplot* prend alors en entrée en ordonnées les valeurs de la déviation générale, et regroupe en abscisses ces valeurs par EPCI. L'argument `varwidth` permet de faire en sorte que la largeur de la boîte à moustache est proportionnelle au nombre d'observations (le nombre de communes). L'argument `range` gère les valeurs extrêmes et les limites des moustaches : Les valeurs supérieures et inférieures à la valeur de `range` fois la valeur de l'interquartile ne sont pas inclues dans les moustaches. Par défaut elle est égale à 1,5. S'il est paramétré à 0, les moustaches vont jusqu'aux valeurs extrêmes. 
 
 Appliqué à notre exemple, cette représentation graphique permet d'apprécier la dispersion statistique existant au sein de chaque EPCI pour notre indicateur d'intérêt. On peut distinguer les EPCI homogènes (pas de valeurs exceptionnelles, intervalle interquartile faible) sont globalement ceux dont la déviation générale est en moyenne la plus faible (T9, T10, T2, T5), ceux qui sont caractérisés par une dispersion des valeurs plus importantes (T7, T8, T3, T4) et ceux où une ou deux communes concentrent un nombre d'emplois au regard de leur population active résidente (T12, T1 ; T11, T6, et T4 dans une moindre mesure).
 
@@ -820,7 +830,7 @@ legend("topleft", legend = rev(as.vector(col$LIB_EPCI_SUB)), pch = 15,
        col = rev(as.vector(col$cols)), cex = 0.8, pt.cex = 1.5)
 ```
 
-On peut également compléter l'analyse descriptive par un modèle statistique d'**analyse de la variance**^[__Analyse de variance__ : Permet d'évaluer le lien entre une variable catégorielle et une variable quantitative. Elle permet d'identifier s'il existe des différences de moyenne de Y en fonction de groupes définis par X.] du ratio emploi par actif (Z) en fonction du territoire d'appartenance (T) en introduisant une pondération par le dénominateur qui est ici le nombre d'actifs (P).
+On peut également compléter l'analyse descriptive par un modèle statistique d'**analyse de la variance**^[__Analyse de variance__ : permet d'évaluer le lien entre une variable catégorielle et une variable quantitative. Elle permet d'identifier s'il existe des différences de moyenne de *Y* en fonction de groupes définis par *X*.] du ratio emploi par actif (Z) en fonction du territoire d'appartenance (T) en introduisant une pondération par le dénominateur qui est ici le nombre d'actifs (P).
 
 ```{r variance_analysis}
 # Paramètres du modèle
@@ -833,7 +843,7 @@ model <- lm(Z ~ T, weights = P)
 summary(model)
 ```
 
-Ce modèle permet tout d'abord de confirmer la présence d'inégalités significatives entre les territoires (p < 0.01). Il indique que l'appartenance à un territoire explique une part non négligeable des inégalités observées entre les communes (R2  = 18%). Il permet enfin de repérer les écarts statistiquement les plus significatifs entre le territoire de référence (T1 = Paris) et les autres territoires.  
+Ce modèle permet tout d'abord de confirmer la présence d'inégalités significatives entre les territoires (p < 0,01). Il indique que l'appartenance à un territoire explique une part non négligeable des inégalités observées entre les communes (R2  = 18 %). Il permet enfin de repérer les écarts statistiquement les plus significatifs entre le territoire de référence (T1 = Paris) et les autres territoires.  
 
 
 
@@ -845,7 +855,10 @@ La fonction `sdev` prend toujours le numérateur et le dénominateur utilisé po
 
 ```{r sdevrel, eval=TRUE, message=FALSE, warning=FALSE}
 # Calcul de la déviation spatiale
-com$sdevrel <- sdev(x = com, var1 = "num", var2 = "denom", type = "rel",
+com$sdevrel <- sdev(x = com, 
+                    var1 = "num", 
+                    var2 = "denom", 
+                    type = "rel", 
                     order = 1)
 ```
 
@@ -900,11 +913,17 @@ mf_label(x = df.min, var = "NOM_COM", cex = 0.6, halo = TRUE, bg = "white",
          col = "#135D89", overlap = FALSE)
 ```
 
-Cette carte montre ainsi que les arrondissements centraux parisiens créent bien un ensemble cohérent pourvoyeurs d'emplois et que cela crée une discontinuité territoriale forte au sein de l'espace parisien. Dans le reste de la métropole, plusieurs pôles locaux d'emplois émergent assez nettement. La valeur maximale de discontinuité (14.5) est observée entre les communes de Rungis (emploi au lieu de travail / actifs = 9.8) et Fresnes (0.7). Cela peut laisser présager d'un échange potentiel de travailleurs entre ces deux communes. Enfin, le sud-ouest de la métropole semble au regard du reste du territoire relativement homogène puisqu'aucune valeur exceptionnelle dans un voisinage géographique proche émerge nettement. 
+Cette carte montre ainsi que les arrondissements centraux parisiens créent bien un ensemble cohérent pourvoyeurs d'emplois et que cela crée une discontinuité territoriale forte au sein de l'espace parisien. Dans le reste de la métropole, plusieurs pôles locaux d'emplois émergent assez nettement. La valeur maximale de discontinuité (14,5) est observée entre les communes de Rungis (emploi au lieu de travail / actifs = 9,8) et de Fresnes (0,7). Cela peut laisser présager d'un échange potentiel de travailleurs entre ces deux communes. Enfin, le sud-ouest de la métropole semble au regard du reste du territoire relativement homogène puisqu'aucune valeur exceptionnelle dans un voisinage géographique proche émerge nettement. 
 
 S'agissant des arrondissements centraux parisiens, la densité de petits commerces sans commune mesure dans le reste de la métropole explique en grande partie cet écart.
 
-![](figure/fig7.PNG)
+<figure class="center">
+  [<img src="figure/fig7.PNG" width="800">](https://www.paris.fr/pages/evolution-des-commerces-a-paris-de-2014-a-2017-5694){target="_blank"}
+  
+  <figcaption style="font-size:13px;">www.paris.fr, 2021, Disponible en ligne : [https://www.paris.fr/pages/evolution-des-commerces-a-paris-de-2014-a-2017-5694](https://www.paris.fr/pages/evolution-des-commerces-a-paris-de-2014-a-2017-5694){target="_blank"}</figcaption>
+</figure>                   
+                                       
+<br>  
 
 Localement, on voit aussi apparaître dans le nord de la Métropole un ensemble de communes qui sont caractérisés parmi les déviations locales les plus faibles de la métropole (Pierrefitte-sur-Seine, Épinay-sur-Seine, Stains).
 
@@ -912,15 +931,15 @@ Localement, on voit aussi apparaître dans le nord de la Métropole un ensemble 
 # Déviation générale - Déviations les plus élevées
 df <- st_set_geometry(df.max, NULL)
 
-df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "sdevrel","num","denom","ratio")]
+df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "sdevrel", "num", "denom", "ratio")]
 ```
 
 
 ```{r sort_sdevrel_high_hide, eval=TRUE, echo = FALSE, message=FALSE, warning=FALSE}
-# Déviation générale - Déviations les plus élevées
+# Déviation générale - Déviations les moins élevées
 df <- st_set_geometry(df.max, NULL)
 
-ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "sdevrel","num","denom","ratio")],
+ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "sdevrel", "num", "denom", "ratio")],
    id_num = c("sdevrel", "num", "denom", "ratio"))
 ```
 
@@ -941,12 +960,12 @@ ft(x = df[1:10,c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "sdevrel","num","denom"
    id_num = c("sdevrel", "num", "denom", "ratio"))
 ```
 
-En appliquant les éléments de méthode issus de la **statistique spatiale**, on peut aussi proposer une **analyse d'autocorrélation spatiale**^[__Autocorrélation spatiale__ : Elle mesure la corrélation d'une variable avec elle même dans l'espace. En présence d'autocorrélation spatiale, on observe que la valeur d'une variable pour une observation est liée aux valeurs de cette variable pour les observations voisines dans l'espace] **fondée sur l'indice de Moran et les indicateurs locaux associés**. On utilise pour cela le package `spdep` créé par Roger Bivand. L'analyse ci-dessous utilise comme variable dépendante le logarithme du rapport emploi sur actif (pour disposer d'une distribution plus gaussienne).
+En appliquant les éléments de méthode issus de la **statistique spatiale**, on peut aussi proposer une **analyse d'autocorrélation spatiale**^[__Autocorrélation spatiale__ : elle mesure la corrélation d'une variable avec elle même dans l'espace. En présence d'autocorrélation spatiale, on observe que la valeur d'une variable pour une observation est liée aux valeurs de cette variable pour les observations voisines dans l'espace.] **fondée sur l'indice de Moran et les indicateurs locaux associés**. On utilise pour cela le package `spdep` créé par Roger Bivand. L'analyse ci-dessous utilise comme variable dépendante le logarithme du rapport emploi sur actif (pour disposer d'une distribution plus gaussienne).
 
 ```{r moran_calculation}
 # Extraction et mise en forme
-Moran <- com[,c("INSEE_COM","NOM_COM", "ratio", "geom")]
-names(Moran) <- c("code","nom","Y", "geom")
+Moran <- com[,c("INSEE_COM", "NOM_COM", "ratio", "geom")]
+names(Moran) <- c("code", "nom", "Y", "geom")
 row.names(Moran) <- Moran$code
 
 # Normalisation log
@@ -965,10 +984,9 @@ Moran$Y_std_lag <- lag.listw(contig_nb_w, Moran$Y_std)
 cor.test(Moran$Y, Moran$Y_lag)
 ```
 
-Il existe une autocorrélation spatiale positive et très significative (I = +0.66, p < 0.001) qui met en évidence un regroupement spatial des zones ayant le même niveau. Dit plus simplement, les zones favorisées sont généralement entourées de zones favorisées et les zones défavorisées entourées de zones défavorisées. 
+Il existe une autocorrélation spatiale positive et très significative (I = +0,66, p < 0,001) qui met en évidence un regroupement spatial des zones ayant le même niveau. Dit plus simplement, les zones favorisées sont généralement entourées de zones favorisées et les zones défavorisées entourées de zones défavorisées. 
 
-
-On peut extraire finalement les **indices locaux d'autocorrélation spatiale (LISA)**^[__Indicateurs d'autocorrélation spatiale locale (LISA)__: Ils permettent de détecter les regroupements significatifs de valeurs identiques autour d'une localisation particulière et de repérer les zones de non-stationnarité spatiale, qui ne suivent pas le processus global.] qui permettront de repérer les situations les plus exceptionnelles de regroupement spatial de zones favorisées ou de zones défavorisées. 
+On peut extraire finalement les **indices locaux d'autocorrélation spatiale (LISA)**^[__Indicateurs d'autocorrélation spatiale locale (LISA)__ : ils permettent de détecter les regroupements significatifs de valeurs identiques autour d'une localisation particulière et de repérer les zones de non-stationnarité spatiale, qui ne suivent pas le processus global.] qui permettront de repérer les situations les plus exceptionnelles de regroupement spatial de zones favorisées ou de zones défavorisées. 
 
 ```{r moran_plot}
 # Local Moran : significativité des valeurs (Z.Ii) 
@@ -1028,7 +1046,7 @@ mf_scale(size = 5, col = "black", pos = c(666000, 6839000))
 mf_credits(txt = credits, pos = "rightbottom", cex = 0.5)
 ```
  
-La classe "Haut-Bas" décrit les situations exceptionnellement élevées de concentration d'emplois au regard du voisinage géographique. Elle fait ressortir avec le seuil statistique retenu (0.75) quatre communes. D'un côté les préfectures de département - Bobigny (Seine-Saint-Denis) et Créteil (Val-de-Marne) - qui concentrent l'emploi dans l'administration publique et la santé. De l'autre les pôles d'emplois (grandes zones d'activité) significatifs dans la MGP : Gennevilliers et Saint-Denis. Le port autonome de Paris, plateforme multimodale d'Ile-de-France localisé à Gennevilliers, concentre en effet [270 entreprises](http://www.zonedactivite.com/zone_d_activites/Port-de-Gennevilliers--i60.htm){target="_blank"}. De son côté, la zone de la Plaine Saint-Denis, principalement localisée à Saint-Denis, constitue le premier pôle d'emplois du département, principalement dans le domaine tertiaire. 
+La classe "Haut-Bas" décrit les situations exceptionnellement élevées de concentration d'emplois au regard du voisinage géographique. Elle fait ressortir avec le seuil statistique retenu (0,75) quatre communes. D'un côté les préfectures de département (Bobigny pour la Seine-Saint-Denis et Créteil pour le Val-de-Marne) - qui concentrent l'emploi dans l'administration publique et la santé. De l'autre les pôles d'emplois (grandes zones d'activité) significatifs dans la MGP : Gennevilliers et Saint-Denis. Le port autonome de Paris, plateforme multimodale d'Ile-de-France localisé à Gennevilliers, concentre en effet [270 entreprises](http://www.zonedactivite.com/zone_d_activites/Port-de-Gennevilliers--i60.htm){target="_blank"}. De son côté, la zone de la Plaine Saint-Denis, principalement localisée à Saint-Denis, constitue le premier pôle d'emplois du département, principalement dans le domaine tertiaire. 
 
 Avec le seuil retenu, la seule commune qui apparaît dans la catégorie "Bas-Haut" (faible concentration de l'emploi au regard de son voisinage géographique) est Asnières-sur-Seine. Ceci est principalement lié au fait qu'elle est voisine de deux communes pourvoyeuses d'emplois : Gennevilliers au nord et Courbevoie au sud (quartier de la Défense).
 
@@ -1051,12 +1069,10 @@ Pour calculer ces déviations dans `MTA`, il suffit de préciser `type = abs` po
 com$gdevabs <- gdev(x = com, var1 = "num", var2 = "denom",  type = "abs")
 
 # Déviation territoriale
-com$tdevabs <- tdev(x = com, var1 = "num", var2 = "denom", type = "abs",
-                    key = "LIB_EPCI_SUB")
+com$tdevabs <- tdev(x = com, var1 = "num", var2 = "denom", type = "abs", key = "LIB_EPCI_SUB")
 
 # Déviation spatiale
-com$sdevabs <- sdev(x = com,  var1 = "num",  var2 = "denom", type = "abs",
-                    order = 1)
+com$sdevabs <- sdev(x = com,  var1 = "num",  var2 = "denom", type = "abs", order = 1)
 ```
 
 Les deux cartes ci-dessous représentent la masse d'emplois (taille des cercles) que les communes excédentaires devraient transférer (cercles rouges) aux communes déficitaires (cercles bleus).
@@ -1070,8 +1086,8 @@ com$tdevsign <- ifelse(com$tdevabs > 0, "Excédent d'emplois", "Déficit d'emplo
 par(mfrow = c(1,2))
 mf_init(epci, expandBB = c(0.02, 0.02, 0.02, 0.02), theme = mta_theme)
 mf_map(epci, col = "peachpuff", border = "black", lwd = 1, add = TRUE)
-mf_map(x = com, var = c("gdevabs", "gdevsign"), type = "prop_typo",
-       inches = 0.2, val_order = c("Excédent d'emplois", "Déficit d'emplois"),
+mf_map(x = com, var = c("gdevabs", "gdevsign"), type = "prop_typo", inches = 0.2, 
+       val_order = c("Excédent d'emplois", "Déficit d'emplois"),
        pal = c("#F6533A","#515FAA"), val_max = max(abs(com$gdevabs)),
        leg_pos = c("n","n"), border = "white", leg_val_rnd = -2)
 mf_legend(type = "typo", pos = "bottomleft", pal = c("#F6533A","#515FAA"), 
@@ -1083,8 +1099,8 @@ mf_scale(size = 5, col = "black", pos = c(666000, 6839000))
 # Déviation territoriale
 mf_init(epci, expandBB = c(0.02, 0.02, 0.02, 0.02), theme = mta_theme)
 mf_map(epci, col = "peachpuff", border = "black", lwd = 1, add = TRUE)
-mf_map(x = com, var = c("tdevabs", "tdevsign"), type = "prop_typo",
-       inches = 0.2, val_order = c("Excédent d'emplois", "Déficit d'emplois"),
+mf_map(x = com, var = c("tdevabs", "tdevsign"), type = "prop_typo", inches = 0.2,
+       val_order = c("Excédent d'emplois", "Déficit d'emplois"),
        pal = c("#F6533A","#515FAA"), leg_pos = c("n","n"), border = "white")
 mf_legend(type = "prop", pos = "bottomleft", col = "lightgrey", border = "white", 
           title = "Emplois à redistribuer\npour atteindre l'équilibre\ndu contexte",
@@ -1104,8 +1120,8 @@ df$gdevabsPerc <- df$gdevabs / df$num * 100
 df$tdevabsPerc <- df$tdevabs / df$num * 100
 df <- df[order(df$gdevabsPerc, decreasing = TRUE), ]
 
-df[1:10, c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "num", "gdevabs", 
-              "gdevabsPerc", "tdevabs", "tdevabsPerc")]
+df[1:10, c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "num", 
+           "gdevabs", "gdevabsPerc", "tdevabs", "tdevabsPerc")]
 ```
 
 
@@ -1123,29 +1139,28 @@ ft(x = df[1:10, c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "num", "gdevabs",
    id_num = c("gdevabs", "num", "gdevabsPerc", "tdevabs", "tdevabsPerc"))
 ```
 
-Ainsi, pour un rééquilibrage de l'emploi au regard de la population active résidente de la commune, c'est 87.5 % de l'emploi (174 253 emplois) du 8ème arrondissement de Paris qui devrait être transféré à des communes déficitaires de la MGP.
+Ainsi, pour un rééquilibrage de l'emploi au regard de la population active résidente de la commune, c'est 87,5 % de l'emploi (174 253 emplois) du 8ème arrondissement de Paris qui devrait être transféré à des communes déficitaires de la MGP.
 
-Si l'on place la redistribution dans le contexte de l'EPCI d'appartenance (tdevabs, tdevabsPerc), c'est 24564 emplois de Rungis (90.2 % du total des emplois localisés dans la ville) qui devraient être attribués aux autres communes de la communauté d'agglomération de Grand Orly Seine Bièvre.
+Si l'on place la redistribution dans le contexte de l'EPCI d'appartenance (*tdevabs*, *tdevabsPerc*), c'est 24 564 emplois de Rungis (90,2 % du total des emplois localisés dans la ville) qui devraient être attribués aux autres communes de la communauté d'agglomération de Grand Orly Seine Bièvre.
 
-Dans le sens inverse des redistributions, au regard de sa population active résidente, Savigny-sur-Orge devrait recevoir 14382 emplois des communes excédentaires de la MGP, soit 236 % de son nombre d'emplois localisés actuellement dans ses limites communales (6081). Si l'on se place dans le contexte de Grand Orly Seine Bièvre, un rééquilibrage impliquerait le transfert de 9499 emplois sur le territoire de Savigny-sur-Orge.
+Dans le sens inverse des redistributions, au regard de sa population active résidente, Savigny-sur-Orge devrait recevoir 14382 emplois des communes excédentaires de la MGP, soit 236 % de son nombre d'emplois localisés actuellement dans ses limites communales (6 081). Si l'on se place dans le contexte de Grand Orly Seine Bièvre, un rééquilibrage impliquerait le transfert de 9 499 emplois sur le territoire de Savigny-sur-Orge.
 
 ```{r devabs_sort, eval=TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 df <- df[order(df$gdevabsPerc, decreasing = FALSE), ]
 
-ft(x = df[1:10, c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "num", "gdevabs", 
-              "gdevabsPerc", "tdevabs", "tdevabsPerc")],
+ft(x = df[1:10, c("INSEE_COM", "NOM_COM", "LIB_EPCI_SUB", "num", 
+                  "gdevabs", "gdevabsPerc", "tdevabs", "tdevabsPerc")],
    id_num = c("gdevabs", "num", "gdevabsPerc", "tdevabs", "tdevabsPerc"))
 ```
 
 
 ### Synthèse des rééquilibrages
 
-La fonction `mas` du package `MTA` permet la synthèse de l'ensemble de ces redistributions. Si l'on souhaite que l'ensemble des communes de la MGP soient caractérisées par un ratio emploi / actifs au lieu de résidence identique, c'est 892 741 emplois (22.9 % de l'emploi total) qui seraient à relocaliser dans les communes déficitaires de la MGP. Dans un contexte de rééquilibrage au sein de chaque EPCI, ce serait 717365 emplois (18.3 % de la masse d'emploi totale). Enfin dans un contexte de rééquilibrage local (critère de contiguïté, non exploré ci-dessus), c'est 488 685 emplois qui faudrait relocaliser.
+La fonction `mas` du package `MTA` permet la synthèse de l'ensemble de ces redistributions. Si l'on souhaite que l'ensemble des communes de la MGP soient caractérisées par un ratio emploi / actifs au lieu de résidence identique, c'est 892 741 emplois (22,9 % de l'emploi total) qui seraient à relocaliser dans les communes déficitaires de la MGP. Dans un contexte de rééquilibrage au sein de chaque EPCI, ce serait 717 365 emplois (18,3 % de la masse d'emploi totale). Enfin dans un contexte de rééquilibrage local (critère de contiguïté, non exploré ci-dessus), c'est 488 685 emplois qui faudrait relocaliser.
 
 ```{r devabs_synthesis, eval=TRUE, message=FALSE, warning=FALSE}
 # Multiscalar absolute synthesis
-mas(x = com, num = "num", gdevabs = "gdevabs", tdevabs = "tdevabs", 
-    sdevabs = "sdevabs")
+mas(x = com, num = "num", gdevabs = "gdevabs", tdevabs = "tdevabs", sdevabs = "sdevabs")
 ```
 
 
@@ -1156,12 +1171,10 @@ En inversant le numérateur et le dénominateur, le problème est retourné puis
 com$gdevabs <- gdev(x = com,  var1 = "denom", var2 = "num", type = "abs")
 
 # Déviation territoriale
-com$tdevabs <- tdev(x = com,  var1 = "denom", var2 = "num", type = "abs",
-                    key = "LIB_EPCI_SUB")
+com$tdevabs <- tdev(x = com,  var1 = "denom", var2 = "num", type = "abs", key = "LIB_EPCI_SUB")
 
 # Déviation spatiale
-com$sdevabs <- sdev(x = com, var1 = "denom",  var2 = "num",  type = "abs",
-                    order = 1)
+com$sdevabs <- sdev(x = com, var1 = "denom",  var2 = "num",  type = "abs", order = 1)
 
 # Multiscalar absolute synthesis
 mas(x = com, num = "denom", gdevabs = "gdevabs", tdevabs = "tdevabs", 
@@ -1196,7 +1209,8 @@ Les bornes par défaut proposées dans les fonctions `bidev` (25, 50 et 100) son
 
 ```{r bidev_maps, echo = TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 # Gdev * TDev
-bidev <- map_bidev(x = com, xid = "INSEE_COM", dev1 = "gdevrel", dev2 = "tdevrel",
+bidev <- map_bidev(x = com, xid = "INSEE_COM", 
+                   dev1 = "gdevrel", dev2 = "tdevrel",
                    breaks = c(25, 250, 500))
 
 # Sortir de la liste les objets retournés par la fonction
@@ -1214,6 +1228,7 @@ plot_bidev(x = com,  dev1 = "gdevrel",  dev2 = "tdevrel",
 
 mtext(text = "Synthèse - 2 déviations", side = 3, 
       adj = 0, line = 3, cex = 1, font = 2)
+
 mtext(text = c("Écarts à la Métropole du Grand Paris (écart général)\n",
                "et l'EPCI d'appartenance des communes (écart territorial)"), side = 3, 
       adj = 0, line = 1, cex = 0.7, font = 3)
@@ -1249,7 +1264,7 @@ La typologie est retournée dans le vecteur `mst`, et définit le positionnement
 
 - Les unités territoriales qui ne répondent à aucun des critères spécifiés par les valeurs de seuil et de sens de comparaison (classe 0).
 
-Pour commencer, nous appliquons la fonction `mst` aux communes-au dessus de l'indice 125 (25 % au-dessus de la moyenne) avec les trois déviations précédemment calculées. Analysons dans un premier temps les communes qui répondent à ce critère pour les 3 déviations, en réalisant un `subset` sur le résultat de la fonction. Il s'agit donc des communes concernées par une nette surreprésentation d'emplois au regard de leur population active résidente, quelque soit le contexte d'analyse.   
+Pour commencer, nous appliquons la fonction `mst` aux communes-au dessus de l'indice 125 (25 % au-dessus de la moyenne) avec les trois déviations précédemment calculées. Analysons dans un premier temps les communes qui répondent à ce critère pour les 3 déviations, en réalisant un `subset` sur le résultat de la fonction. Il s'agit donc des communes concernées par une nette sur-représentation d'emplois au regard de leur population active résidente, quelque soit le contexte d'analyse.   
 
 ```{r mst_calculation, echo = TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 # Calcul typologie de synthèse
@@ -1270,7 +1285,7 @@ ft(tmp, id_num = c("ratio", "gdevrel", "tdevrel", "sdevrel"))
 
 La fonction `map_mst`reprend la proposition du code couleur de la typologie de synthèse utilisée dans HyperAtlas. Cette fonction prend exactement les mêmes arguments que `mst` et renvoie dans une liste des géométries ordonnées en fonction des résultats de `mst`, un vecteur de couleur associé et une légende adaptée. Une fois ces éléments extraits de la liste et cartographiés en utilisant les fonctions proposées par le package `cartography`,  on peut mettre en évidence sur le même plan les communes en position contradictoires en fonction des contextes territoriaux et spatiaux considérés.
 
-C'est notamment le cas des communes de Villepinte, Le Bourget, Bry-sur-Marne, Noisy-le-Grand, Créteil et Bonneuil-sur-Marne, pour qui, même si la concentration de l'emploi qui les caractérise n'est pas spécifiquement largement au-dessus de la moyenne dans le contexte de la MGP, l'est considérablement dans le contexte de leur EPCI d'appartenance et de leurs communes voisines.  
+C'est notamment le cas des communes de Villepinte, Le Bourget, Bry-sur-Marne, Noisy-le-Grand, Créteil et Bonneuil-sur-Marne, pour qui, même si la concentration de l'emploi qui les caractérise n'est pas spécifiquement au-dessus de la moyenne dans le contexte de la MGP, elle l'est considérablement dans le contexte de leur EPCI d'appartenance et de leurs communes voisines.  
 
 ```{r mst_map, echo = TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 # Calcul typologie de synthèse
@@ -1286,8 +1301,7 @@ leg_val <- mst$leg_val
 par(mfrow = c(1,1))
 mf_init(epci, expandBB = c(0,0.2,0,0), theme = mta_theme)
 mf_map(x = com, var = "mst", type = "typo", border = "white", lwd = 0.2,
-       pal = cols, val_order = unique(com$mst), leg_pos = "n",
-       add = TRUE)
+       pal = cols, val_order = unique(com$mst), leg_pos = "n", add = TRUE)
 mf_map(epci, col = NA, border = "black", lwd = 1, add = TRUE)
 mf_legend(type = "typo", pos = "left", val = leg_val, pal = cols, 
           title = "Pour le contexte général (G)\net-ou territorial (T)\net-ou spatial (S)",)
@@ -1329,7 +1343,7 @@ tmp <- subset(com, mst == 7,
 
 Près du tiers des communes de l'espace d'étude (45) se situent dans la catégorie 7 (indice inférieur à 80 pour les trois contextes. Cela souligne les grandes inégalités qui structurent cet espace d'étude.
 
-C'est par exemple le cas pour Pierrefitte-sur-Seine (avec des indices de déviation inférieurs à 50 pour les trois déviations), commune de 30 000 habitants où par ailleurs le taux de chômage des 15 à 64 ans s'élève à 22,6 % d'après le [comparateur des territoires de l'INSEE](https://www.insee.fr/fr/statistiques/1405599?geo=EPCI-249300088%20COM-66136){target="_blank"}, contre 13,9 % pour la moyenne française.  
+C'est par exemple le cas pour Pierrefitte-sur-Seine (avec des indices de déviation inférieurs à 50 pour les trois déviations), commune de 30 000 habitants où par ailleurs le taux de chômage des 15 à 64 ans s'élève à 21,7 % d'après le [comparateur des territoires de l'INSEE](https://www.insee.fr/fr/statistiques/zones/1405599){target="_blank"}, contre 13,4 % pour la moyenne française.  
 
 ```{r mst_table2, echo = TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 ft(tmp, id_num = c("ratio", "gdevrel", "tdevrel", "sdevrel"))
@@ -1370,19 +1384,19 @@ mf_label(x = com[com$mst == 6,], var = "NOM_COM", col = "black", bg = "white",
 
 # Du travail à la maison ?
 
-Les fonctions et les représentations associées à `MTA` constituent un socle méthodologique utile pour mener à bien une analyse territoriale multiscalaire, et discuter des inégalités inhérentes à un espace d'étude sous diverses perspectives territoriales. Ce package, maintenu par les membres de l'UMS RIATE, peut être amené à évoluer en fonction du [retour des utilisateurs](https://github.com/riatelab/MTA/issues). 
+Les fonctions et les représentations associées à `MTA` constituent un socle méthodologique utile pour mener à bien une analyse territoriale multiscalaire, et discuter des inégalités inhérentes à un espace d'étude sous diverses perspectives territoriales. Ce package, maintenu par les membres de l'[UMS RIATE](https://riate.cnrs.fr/), peut être amené à évoluer en fonction du [retour des utilisateurs](https://github.com/riatelab/MTA/issues). 
 
 Pour en revenir à l'application proposée ici, plusieurs pistes méthodologiques pourraient être explorées pour poursuivre ces analyses et s'approprier ce support pédagogique. 
 
-- **Prise en compte de la dimension temporelle** : Pour discuter de l'augmentation ou de la diminution de ces inégalités dans le temps, ainsi que des reconfigurations spatiales qui s'opèrent, les différentes versions de ce jeu de données mis à disposition par l'INSEE rend possible l'intégration de la dimension temporelle à l'analyse. L'INSEE met notamment à disposition ce jeu de données pour [2006](https://www.insee.fr/fr/statistiques/2120425?sommaire=2402692){target="_blank"} et [2012](https://www.insee.fr/fr/statistiques/2046871?sommaire=2118241){target="_blank"}. Dans ce cas de figure, il faudra néanmoins veiller à la cohérence des définitions et méthodes de calcul des indicateurs, parfois changeantes au gré du temps ; ainsi qu'à la stabilité du maillage territorial (de nombreuses communes ont fusionné sur cet intervalle de temps). 
+- **Prise en compte de la dimension temporelle** : pour discuter de l'augmentation ou de la diminution de ces inégalités dans le temps, ainsi que des reconfigurations spatiales qui s'opèrent, les différentes versions de ce jeu de données mis à disposition par l'INSEE rend possible l'intégration de la dimension temporelle à l'analyse. L'INSEE met notamment à disposition ce jeu de données pour [2006](https://www.insee.fr/fr/statistiques/2120425?sommaire=2402692){target="_blank"} et [2012](https://www.insee.fr/fr/statistiques/2046871?sommaire=2118241){target="_blank"}. Dans ce cas de figure, il faudra néanmoins veiller à la cohérence des définitions et méthodes de calcul des indicateurs, parfois changeantes au gré du temps ; ainsi qu'à la stabilité du maillage territorial (de nombreuses communes ont fusionné sur cet intervalle de temps). 
 
-- **Variation(s) autour des indicateurs** : Un grand nombre d'indicateurs est mis à disposition au niveau communal par l'INSEE, notamment sur la thématique de l'emploi (par sexe, par tranche d'âge, par type de contrat, par branche d'activité économique, etc.) Il peut s'avérer utile de confronter d'autres composantes de l'emploi et discuter ainsi de la stabilité de ces inégalités sur d'autres sous-catégories. 
+- **Variation(s) autour des indicateurs** : un grand nombre d'indicateurs est mis à disposition au niveau communal par l'INSEE, notamment sur la thématique de l'emploi (par sexe, par tranche d'âge, par type de contrat, par branche d'activité économique, etc.) Il peut s'avérer utile de confronter d'autres composantes de l'emploi et discuter ainsi de la stabilité de ces inégalités sur d'autres sous-catégories. 
 
-- **Effets de maillages et zooms locaux** : certaines communes agrègent des situations très hétérogènes (arrondissements parisiens, Montreuil, par exemple). La transposition de la de l'analyse à une maille territoriale plus fine (IRIS) peut constituer une piste intéressante, et en limitant le contexte général d'analyse à un EPCI donné et non plus à la Métropole du Grand Paris. Les données d'emploi sont à ce titre mises à disposition par [l'INSEE](https://www.insee.fr/fr/statistiques/3627009#consulter){target="_blank"}, même si elles ne concernent pas l'emploi au lieu de travail mais au lieu de résidence. 
+- **Effets de maillages et zooms locaux** : certaines communes agrègent des situations très hétérogènes (arrondissements parisiens ou Montreuil par exemple). La transposition de l'analyse à une maille territoriale plus fine (IRIS), en limitant le contexte général d'analyse à un EPCI donné et non plus à la Métropole du Grand Paris peut constituer une piste intéressante. Les données d'emploi sont à ce titre mises à disposition par [l'INSEE](https://www.insee.fr/fr/statistiques/3627009#consulter){target="_blank"}, même si elles ne concernent pas l'emploi au lieu de travail mais au lieu de résidence. 
 
-- **Une ouverture à d'autres métropoles** : Le jeu de données préparé en amont rend possible l'extension de l'analyse parisienne aux 21 autres métropoles françaises : à l'échelle communale avec le même indicateur utilisé plus haut, ou à l'échelle des IRIS avec la part des ménages disposant d'au moins un véhicule. 
+- **Une ouverture à d'autres métropoles** : le jeu de données préparé en amont rend possible l'extension de l'analyse parisienne aux 21 autres métropoles françaises : à l'échelle communale avec le même indicateur utilisé plus haut, ou à l'échelle des IRIS avec la part des ménages disposant d'au moins un véhicule. 
 
-A ce titre, cet ultime bloc de code décrit une procédure possible pour transposer une analyse multiscalaire à l'échelle des IRIS pour la métropole Grenobloise et la part des ménages équipés d'au moins une automobile. Les données sont d'abord ré-importées puis filtrées pour ne conserver que les objets géographiques appartenant à *Grenoble-Alpes Métropole*. Les valeurs égales à 0 sont ensuite retirées du jeu de données (IRIS d'activité). La déviation générale est calculée (déviation à la métropole), ainsi que la déviation à un contexte intermédiaire (commune d'appartenance de l'IRIS).
+A ce titre, cet ultime bloc de code décrit une procédure possible pour transposer une analyse multiscalaire à l'échelle des IRIS pour la métropole Grenobloise, sur la part des ménages équipés d'au moins une automobile. Les données sont d'abord ré-importées puis filtrées pour ne conserver que les objets géographiques appartenant à *Grenoble-Alpes Métropole*. Les valeurs égales à 0 sont ensuite retirées du jeu de données (IRIS d'activité). La déviation générale est calculée (déviation à la métropole), ainsi que la déviation à un contexte intermédiaire (commune d'appartenance de l'IRIS).
 
 ```{r gre_prep, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
 # 1 - Import et sélection des données
@@ -1392,7 +1406,7 @@ com <- st_read("data/data.gpkg", layer = "com", quiet = TRUE)
 # et voir les métropoles disponibles
 levels(as.factor(com$LIB_EPCI))
 
-# 2 - Filtrer sur Grenoble et initaliser l'analyse
+# 2 - Filtrer sur Grenoble et initialiser l'analyse
 iris <- iris[iris$LIB_EPCI == "Métropole Grenoble-Alpes-Métropole",]
 com <- com[com$LIB_EPCI == "Métropole Grenoble-Alpes-Métropole",]
 
@@ -1408,16 +1422,14 @@ iris <- iris[iris$num != 0 & iris$denom != 0,]
 iris$gdevrel <- gdev(x = iris, var1 = "num", var2 = "denom",  type = "rel")
 
 # Ecart spatial (Moins de 5 km)
-iris$tdevrel <- tdev(x = iris, var1 = "num", var2 = "denom", type = "rel", 
-                    key = "INSEE_COM")
+iris$tdevrel <- tdev(x = iris, var1 = "num", var2 = "denom", type = "rel", key = "INSEE_COM")
 ```
 
 La carte de synthèse qui en résulte (`map_bidev`) permet de juger du degré d'équipement automobile des ménages grenoblois. Si les communes (l'IRIS correspondant à la commune pour celles-ci) périphériques de Belledonne, du Vercors et de Chartreuse présentent sans surprise des niveaux d'équipements supérieurs à la moyenne de la métropole, on observe des distinctions intéressantes dans l'hypercentre grenoblois : ce sont les secteurs piétonniers et proche de la gare (IRIS en bleu) qui présentent les niveaux les plus faibles de la métropole dans les deux contextes de l'analyse. Cela correspond aussi aux endroits bien desservis par le tram et relativement aisés pour la pratique du vélo (pistes cyclables, pas de dénivelé). Il n'en est pas de même avec le sud de Grenoble où le niveau d'équipement automobile s'avère être au-dessus des moyennes grenobloise et de la métropole. Les commues situées à l'est de Grenoble (La Tronche, Saint-Martin-d'Hères) présentent par ailleurs des niveaux d'équipement automobile relativement faibles, qui s'expliquent par leur bonne liaison avec le centre de la métropole du fait de la présence de l'université et du CHU de la métropole.  
 
 ```{r gre_map, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
 # Typologie 2 indicateurs
-bidev <- map_bidev(x = iris, dev1 = "gdevrel", dev2 = "tdevrel", 
-                   breaks = c(15, 50, 150))
+bidev <- map_bidev(x = iris, dev1 = "gdevrel", dev2 = "tdevrel", breaks = c(15, 50, 150))
 
 # Extraire de la liste
 metroG <- bidev$geom
@@ -1437,8 +1449,8 @@ plot_bidev(x = metroG,  dev1 = "gdevrel",  dev2 = "tdevrel",
            lib.var = "NOM_IRIS", lib.val = gre_labels,
            cex.lab = 0.7, breaks = c(15, 50, 150))
 
-mtext(text = "Part des ménages ayant une voiture ou plus", side = 3, 
-      adj = 0, line = 3, cex = .9, font = 2)
+mtext(text = "Part des ménages ayant une voiture ou plus", 
+      side = 3, adj = 0, line = 3, cex = .9, font = 2)
 mtext(text = c("Écarts à la Métropole de Grenoble (écart général)\n",
                "et la commune d'appartenance des IRIS (écart territorial)"), side = 3, 
       adj = 0, line = 1, cex = .7, font = 3)
@@ -1505,3 +1517,15 @@ toBibtex(rref)
 ``` 
 
 <br/>
+
+
+## Glossaire {- #endnotes}
+
+```{js, echo=FALSE}
+
+$(document).ready(function() {
+  $('.footnotes ol').appendTo('#endnotes');
+  $('.footnotes').remove();
+});
+
+```

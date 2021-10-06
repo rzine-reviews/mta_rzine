@@ -1,15 +1,15 @@
-# Analyse territoriale multiscalaire
-
-## Auteurs et accès
-
-Fiche méthodologique réalisée par Ronan Ysebaert (UMS RIATE, Université de Paris) et Claude Grasland (FR CIST, Université de Paris, UMR Géographie-cités)
-
--> [Consulter](https://rzine-reviews.github.io/mta_rzine/)
+# Analyse territoriale multiscalaire [<img src="https://rzine.fr/img/Rzine_logo.png"  align="right" width="120"/>](http://rzine.fr/)
+### Application à la concentration de l’emploi dans la Métropole du Grand Paris
+**Ronan Ysebaert (UMS RIATE, Université de Paris) et Claude Grasland (FR CIST, UMR Géographie-cités, Université de Paris)**
+<br/>  
+Pour consulter cette fiche Rzine vous pouvez cliquer [**ici**](https://rzine-reviews.github.io/mta_rzine/)
 
 
-## Une publication rzine
+<br/>  
 
-Cette fiche a fait l'objet d'une soumission à la [collection Rzine](https://rzine.fr/collection).
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+<br/>  
 
 
 ## Review - Gestion des modifications
