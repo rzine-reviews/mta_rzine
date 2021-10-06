@@ -674,8 +674,7 @@ La fonction `tdev` de `MTA` est utilisée. Les arguments `var1`, `var2` et `type
 
 ```{r tdevrel, eval=TRUE, message=FALSE, warning=FALSE}
 # Déviation territoriale - calcul
-com$tdevrel <- tdev(x = com, var1 = "num", var2 = "denom",  type = "rel", 
-                    key = "LIB_EPCI_SUB")
+com$tdevrel <- tdev(x = com, var1 = "num", var2 = "denom",  type = "rel", key = "LIB_EPCI_SUB")
 ```
 
 Cette analyse n'a évidemment d'intérêt que si, et dans la mesure où, on suppose que les responsables politiques de chaque territoires de la MGP sont susceptibles de mener une politique d'emploi à l'intérieur de leurs propres frontières. Or, les 12 territoire du Grand Paris disposent bien d'une compétence partagée avec la Métropole en matière d'aménagement de l'espace. Ils peuvent donc agir sur la répartition des emplois et des actifs. Ainsi le territoire Grand Sud Est Avenir décrit son action  "*[par l’aménagement de zones d’activité économiques ou de projets mixtes, mêlant logements, commerces et activités, à l’instar de l’agroquartier de Noiseau, du centre commercial du Grand Ensemble à Alfortville ou encore de la Ballastière Nord à Limeil-Brévannes](https://sudestavenir.fr/nos-actions/amenagement-et-developpement/amenagement-de-lespace/){target="_blank"}*".
