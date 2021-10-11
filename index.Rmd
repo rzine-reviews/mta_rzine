@@ -131,14 +131,14 @@ Aujourd'hui, HyperCarte n'est plus actif et HyperAtlas plus maintenu. **L'object
 D'un point de vue conceptuel, HyperAtlas et `MTA` reposent sur l'hypothèse que la signification d'un indicateur dépend grandement du contexte territorial de référence dans lequel il s'inscrit. 
 
 <center>
-![](figure/fig1.png){width=80%}
+![](figure/fig1.png){width=90%}
 </center>
 <br>
 
 La confrontation de ces contextes d'analyse par l’intermédiaire de représentations synoptiques permet de synthétiser les inégalités mesurées et de mettre en évidence des situations de domination, de soumission ou de contradiction [@ysebaert2011]. La mise à disposition de ces trois mesures d'écarts - associées à des représentations graphiques et cartographiques adaptées - sont au coeur du logiciel HyperAtlas et des fonctions d'analyse proposées par `MTA`, que nous détaillons ici. 
 
 <center>
-![](figure/fig2.PNG){width=65%}
+![](figure/fig2.PNG){width=70%}
 </center>
 
 <br>
