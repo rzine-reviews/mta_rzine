@@ -799,7 +799,6 @@ Pour réaliser cette représentation, quelques pré-traitements sont nécessaire
 
 La *boxplot* prend alors en entrée en ordonnées les valeurs de la déviation générale et regroupe en abscisses ces valeurs par EPCI. L'argument `varwidth` permet de faire en sorte que la largeur de la boîte à moustache est proportionnelle au nombre d'observations (le nombre de communes). L'argument `range` gère les valeurs extrêmes et les limites des moustaches : les valeurs supérieures et inférieures à la valeur de `range` multiplié par la valeur de l'interquartile ne sont pas inclues dans les moustaches. Par défaut il est égal à 1,5. S'il est paramétré à 0, les moustaches vont jusqu'aux valeurs extrêmes. 
 
-Appliqué à notre exemple, cette représentation graphique permet d'apprécier la dispersion statistique existant au sein de chaque EPCI pour notre indicateur d'intérêt. On peut distinguer les EPCI homogènes (pas de valeurs exceptionnelles, intervalle interquartile faible) dont la déviation générale est en moyenne la plus faible (T9, T10, T2, T5), ceux qui sont caractérisés par une dispersion des valeurs plus importantes (T7, T8, T3, T4) et ceux où une ou deux communes concentrent un nombre d'emplois au regard de leur population active résidente (T12, T1 ; T11, T6, et T4 dans une moindre mesure).
 
 ```{r boxplot, eval=TRUE, message=FALSE, warning=FALSE}
 par(cex.lab = 1, cex.axis = 0.75, mar = c(4, 4, 2, 2))
@@ -839,6 +838,8 @@ legend("topleft", legend = rev(as.vector(col$LIB_EPCI_SUB)), pch = 15,
        col = rev(as.vector(col$cols)), cex = 0.8, pt.cex = 1.5)
 ```
 
+Appliqué à notre exemple, cette représentation graphique permet d'apprécier la dispersion statistique existant au sein de chaque EPCI pour notre indicateur d'intérêt. On peut distinguer les EPCI homogènes (pas de valeurs exceptionnelles, intervalle interquartile faible) dont la déviation générale est en moyenne la plus faible (T9, T10, T2, T5), ceux qui sont caractérisés par une dispersion des valeurs plus importantes (T7, T8, T3, T4) et ceux où une ou deux communes concentrent un nombre d'emplois au regard de leur population active résidente (T12, T1 ; T11, T6, et T4 dans une moindre mesure).
+
 On peut également compléter l'analyse descriptive par un modèle statistique d'**analyse de la variance**^[__Analyse de variance__ : permet d'évaluer le lien entre une variable catégorielle et une variable quantitative. Elle permet d'identifier s'il existe des différences de moyenne de *Y* en fonction de groupes définis par *X*.] du ratio emploi par actif (*Z*) en fonction du territoire d'appartenance (*T*) en introduisant une pondération par le dénominateur qui est ici le nombre d'actifs (*P*).
 
 ```{r variance_analysis}
@@ -852,7 +853,7 @@ model <- lm(Z ~ T, weights = P)
 summary(model)
 ```
 
-Ce modèle permet tout d'abord de confirmer la présence d'inégalités significatives entre les territoires (p < 0,01). Il indique que l'appartenance à un territoire explique une part non négligeable des inégalités observées entre les communes (R2  = 18 %). Il permet enfin de repérer les écarts statistiquement les plus significatifs entre le territoire de référence (T1 = Paris) et les autres territoires.  
+Ce modèle permet tout d'abord de confirmer la présence d'inégalités significatives entre les territoires ($p-value$ < 0,01). Il indique que l'appartenance à un territoire explique une part non négligeable des inégalités observées entre les communes ($R^2$  = 18 %). Il permet enfin de repérer les écarts statistiquement les plus significatifs entre le territoire de référence (T1 = Paris) et les autres territoires.  
 
 
 
