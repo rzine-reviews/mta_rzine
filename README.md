@@ -1,12 +1,16 @@
 # Analyse territoriale multiscalaire [<img src="https://rzine.fr/img/Rzine_logo.png"  align="right" width="120"/>](http://rzine.fr/)
 ### Application à la concentration de l’emploi dans la Métropole du Grand Paris
-**Ronan Ysebaert (UMS RIATE, Université de Paris) et Claude Grasland (FR CIST, UMR Géographie-cités, Université de Paris)**
-<br/>  
-Pour consulter cette fiche Rzine vous pouvez cliquer [**ici**](https://rzine-reviews.github.io/mta_rzine/)
-
-
+**Ronan Ysebaert (UMS RIATE, Univ. de Paris) et Claude Grasland (FR CIST, UMR Géographie-cités, Univ. de Paris)**
 <br/>  
 
+Cette fiche présente une **analyse territoriale multiscalaire** menée sur la **concentration de l'emploi** dans les communes de la **métropole du Grand Paris** (MGP). Cette analyse reproductible utilise des données de l'INSEE librement accessibles et montre l'usage et l'intérêt des fonctions du package `MTA` (**Multiscalar Territorial Analysis**) pour révéler l'existence d'inégalités territoriales dans un contexte multiscalaire.
+
+Pour la consulter, cliquez [**ici**]()
+
+
+<br/>  
+
+[![DOI:10.48645/xxxxx](https://zenodo.org/badge/DOI/10.48645/xxxxx.svg)](https://doi.org/10.48645/xxxxx)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 <br/>  

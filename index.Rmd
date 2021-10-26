@@ -87,7 +87,7 @@ Le socle méthodologique sur lequel repose le package `MTA` (**Multiscalar Terri
 
 ## HyperAtlas : un révélateur des contradictions de la  politique régionale européenne
 
-L'objectif politique et empirique de la première application était de montrer que la définition des régions en retard de développement dépend du contexte d'observation et que celui-ci peut se définir d'au moins trois façons différentes. Si l'on prend par exemple le critère du PIB par habitant en parité de pouvoir d'achat, et si l'on se fixe un seuil de -25 % de la valeur de référence, on aura trois listes différentes de régions en retard : 
+L'objectif politique et empirique de la première application était de montrer que la définition des régions en retard de développement dépend du contexte d'observation et que celui-ci peut se définir d'au moins trois façons différentes. Si l'on prend par exemple le PIB par habitant en parité de pouvoir d'achat, et que l'on fixe un seuil de -25 % à la valeur de référence, trois listes différentes de régions en retard se révèlent : 
 
 - *contexte européen* : régions ayant un PIB/hab. inférieur de 25 % à la moyenne de l'Union européenne  
 - *contexte national* : régions ayant un PIB/hab. inférieur de 25 % à la moyenne de son pays d'appartenance  
@@ -184,11 +184,11 @@ Cinq sources de données sont mobilisées dans cette analyse :
 
  **4)** [**Logement en 2016**](https://www.insee.fr/fr/statistiques/4228432){target="_blank"} : des indicateurs décrivant le niveau de motorisation des ménages à l'échelle des IRIS et mis à disposition par l'INSEE. 
 
-Un cinquième fichier, [**metropole.xls **](https://github.com/rzine-reviews/mta_rzine/raw/main/data/metropoles.xlsx), construit par nos soins à partir des sites Web de référence des métropoles, vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris). Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérante, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
+Un cinquième fichier, [**metropole.xls **](https://rzine.fr/docs/20211101_ysebaert_grasland_MTA/data/metropoles.xlsx), construit par nos soins à partir des sites Web de référence des métropoles, vise à identifier des sous-ensembles territoriaux cohérents à l'intérieur de ces métropoles. Dans le cadre de la métropole du Grand Paris, il s'agit des 11 communautés d'agglomération (+ Paris). Pour les autres métropoles, l'importance des EPCI intermédiaires est moins prépondérante, puisque les métropoles ont vocation à remplacer les anciens EPCI. Nous avons néanmoins restitué quand c'était possible la géographie de ces anciennes mailles de décision afin de disposer d'un découpage territorial intermédiaire entre les communes et les métropoles. Quand ce maillage intermédiaire était inexistant (transformation de communautés urbaines en métropole sans inclusion de nouvelles communes au périmètre de coopération), nous avons uniquement fait la distinction entre la ville centre (LIB_EPCI = C) et sa périphérie (LIB_EPCI = P). 
 
 Hormis ce dernier fichier, il s'agit donc de sources de données officielles, mises à jour annuellement, qui sont associées à un découpage géographique libre de droit et dd'utilisation, ce qui facilite la mise à jour et la transposition des analyses. 
 
-Pour rejouer la préparation des données - jointures attributaires, sélection des métropoles, agrégation par clé d'appartenance territoriale - se reporter à ce [script R](https://github.com/rzine-reviews/mta_rzine/blob/main/prepa.R).
+Pour rejouer la préparation des données - jointures attributaires, sélection des métropoles, agrégation par clé d'appartenance territoriale - se reporter à ce [script R](https://rzine.fr/docs/20211101_ysebaert_grasland_MTA/prepa.R).
 
 
 
@@ -284,11 +284,11 @@ invisible(lapply(my_packages, library,  character.only = TRUE))
 
 <br/>
 
-<p class="center">[<span style="font-size: 230%;" class="glyphicon glyphicon-download-alt"></span> <br/> Télécharger les données](https://github.com/rzine-reviews/mta_rzine/raw/main/data.zip)</p>
+<p class="center">[<span style="font-size: 230%;" class="glyphicon glyphicon-download-alt"></span> <br/> Télécharger les données](https://rzine.fr/docs/20211101_ysebaert_grasland_MTA/data.zip)</p>
 
 <br/>
 
-Pour rejouer l'analyse, décompressez les données contenues dans l'archive [data.zip](https://github.com/rzine-reviews/mta_rzine/raw/main/data.zip) puis ouvrez les couches ***com*** et ***epci*** contenues dans le geopackage ***data.gpkg***.   
+Pour rejouer l'analyse, décompressez les données contenues dans l'archive [data.zip](https://rzine.fr/docs/20211101_ysebaert_grasland_MTA/data.zip) puis ouvrez les couches ***com*** et ***epci*** contenues dans le geopackage ***data.gpkg***.   
 
 
 ```{r import_data_consolidated}
@@ -1501,16 +1501,17 @@ kableExtra::kable_styling(knitr::kable(rzine::sessionRzine()[[2]], row.names = F
 ```{r Citation, echo=FALSE}
 
 rref <- bibentry(
-   bibtype = "article",
+   bibtype = "misc",
    title = "Analyse territoriale multiscalaire",
    subtitle = "Application à la concentration de l'emploi dans la métropole du Grand Paris",
    author = person("Ronan Ysebaert, Claude Grasland"),
-   journal = "Rzine",
-   publisher = "FR 2007 CIST",
+   doi = "10.48645/xxxxx",
+   url = "https://rzine.fr/publication_rzine/xxxxx/",
+   keywords ="FOS: Other social sciences",
+   language = "fr",
+   publisher = "FR2007 CIST",
    year = 2021,
-   url = "https://rzine.fr/docs/20211030_xxxxxxxxxx/index.html")
-
-
+   copyright = "Creative Commons Attribution Share Alike 4.0 International")
 
 ``` 
 
