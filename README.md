@@ -5,7 +5,7 @@
 
 Cette fiche présente une **analyse territoriale multiscalaire** menée sur la **concentration de l'emploi** dans les communes de la **métropole du Grand Paris** (MGP). Cette analyse reproductible utilise des données de l'INSEE librement accessibles et montre l'usage et l'intérêt des fonctions du package `MTA` (**Multiscalar Territorial Analysis**) pour révéler l'existence d'inégalités territoriales dans un contexte multiscalaire.
 
-Pour la consulter, cliquez [**ici**]()
+Pour la consulter, cliquez [**ici**](https://rzine.fr/docs/20211101_ysebaert_grasland_MTA/index.html)
 
 
 <br/>  
