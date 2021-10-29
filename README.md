@@ -10,7 +10,7 @@ Pour la consulter, cliquez [**ici**]()
 
 <br/>  
 
-[![DOI:10.48645/xxxxx](https://zenodo.org/badge/DOI/10.48645/xxxxx.svg)](https://doi.org/10.48645/xxxxx)
+[![DOI:10.48645/hjvq-yp94](https://zenodo.org/badge/DOI/10.48645/hjvq-yp94.svg)](https://doi.org/10.48645/hjvq-yp94)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 <br/>  
