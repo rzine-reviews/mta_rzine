@@ -11,7 +11,7 @@ Pour la consulter, cliquez [**ici**](https://rzine.fr/docs/20211101_ysebaert_gra
 <br/>  
 
 [![DOI:10.48645/hjvq-yp94](https://zenodo.org/badge/DOI/10.48645/hjvq-yp94.svg)](https://doi.org/10.48645/hjvq-yp94)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 <br/>  
 
