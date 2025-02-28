@@ -1,4 +1,4 @@
-# Analyse territoriale multiscalaire [<img src="https://rzine.fr/img/Rzine_logo.png"  align="right" width="120"/>](http://rzine.fr/)
+# Analyse territoriale multiscalaire [<img src="https://rzine.fr/assets/img/rzine.png"  align="right" width="120"/>](http://rzine.fr/)
 ### Application à la concentration de l’emploi dans la Métropole du Grand Paris
 **Ronan Ysebaert (UMS RIATE, Univ. de Paris) et Claude Grasland (FR CIST, UMR Géographie-cités, Univ. de Paris)**
 <br/>  
